@@ -25,12 +25,19 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
         if #available(iOS 13.4, *) {
                 datePicker.preferredDatePickerStyle = .compact
         }
+        
+        setupElements()
+    }
+    
+    private func setupElements(){
+        //Image
         let tap = UITapGestureRecognizer(target: self, action: #selector (changeImage))
         image.isUserInteractionEnabled = true
         image.addGestureRecognizer(tap)
+
     }
     
-    @objc func changeImage(){
+    @objc private func changeImage(){
         print("Change Image")
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -45,7 +52,7 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
     picker.dismiss(animated: true)
     }
     
-    @IBAction func publish(_ sender: Any) {
+    @IBAction private func publish(_ sender: Any) {
         
         if let validation = validateInputs() {
             alert(title: "Falha", message: validation)
@@ -68,7 +75,7 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
         }
     }
     
-    func validateInputs() -> String?{
+    private func validateInputs() -> String?{
         var menssage: String = ""
         
         if let text = tema.text, text.isEmpty{
@@ -89,7 +96,7 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
         return menssage.count > 1 ? menssage : nil
     }
     
-    func alert(title: String, message: String, handler: @escaping (UIAlertAction) -> Void = {_ in }) {
+    private func alert(title: String, message: String, handler: @escaping (UIAlertAction) -> Void = {_ in }) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Dismiss", style: .cancel, handler: handler)
         alert.addAction(action)
@@ -104,6 +111,5 @@ extension  RegisterClassViewController: ReloadDelegate {
         alert(title: "Sucesso", message: "Aula adicionada com sucesso") {_ in
             self.navigationController?.popViewController(animated: true)
         }
-        
     }
 }
