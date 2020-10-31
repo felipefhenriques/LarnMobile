@@ -39,7 +39,9 @@ class ProfessorHomeViewController: UIViewController, UITableViewDataSource, UITa
         // Configure Cell
         cell.title.text = fruit.tema
         cell.sold.text = String(indexPath.row)
-        
+        if let data = fruit.image {
+            cell.img.image = UIImage(data: data)
+        }
         return cell
     }
     
@@ -63,4 +65,18 @@ class ProfessorHomeViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
+    @IBAction func addClass(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Professor", bundle: Bundle.main)
+        let registerView: RegisterClassViewConroller = storyboard.instantiateViewController(withIdentifier: "RegisterClass") as! RegisterClassViewConroller
+        registerView.reloadDelegate = self
+        self.navigationController?.pushViewController(registerView, animated: true)
+    }
+}
+
+extension ProfessorHomeViewController: ReloadDelegate {
+    
+    func reload() {
+        fetchData()
+    }
+
 }

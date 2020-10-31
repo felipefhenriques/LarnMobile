@@ -139,7 +139,7 @@
                     <navigationItem key="navigationItem" title="Meus Cursor" id="DWZ-zT-dLq">
                         <barButtonItem key="rightBarButtonItem" title="Add" image="plus" catalog="system" id="Y3Z-nO-WqM">
                             <connections>
-                                <segue destination="Y3Y-Cj-Bfj" kind="show" id="3Ie-Vp-aE7"/>
+                                <action selector="addClass:" destination="QFl-SF-dJV" id="aUW-Ik-yYi"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -154,7 +154,7 @@
         <!--Register Class View Conroller-->
         <scene sceneID="1Fs-ui-3nb">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Y3Y-Cj-Bfj" customClass="RegisterClassViewConroller" customModule="Larn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterClass" modalPresentationStyle="fullScreen" id="Y3Y-Cj-Bfj" customClass="RegisterClassViewConroller" customModule="Larn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lnp-kQ-NKG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

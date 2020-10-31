@@ -25,6 +25,7 @@
 		896633D0254C64F200EBF5DF /* RegisterClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896633CF254C64F200EBF5DF /* RegisterClassViewController.swift */; };
 		896633E1254C909300EBF5DF /* Aula+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896633DF254C909300EBF5DF /* Aula+CoreDataClass.swift */; };
 		896633E2254C909300EBF5DF /* Aula+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896633E0254C909300EBF5DF /* Aula+CoreDataProperties.swift */; };
+		896633ED254DB0AF00EBF5DF /* ReloadDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896633EC254DB0AF00EBF5DF /* ReloadDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		896633CF254C64F200EBF5DF /* RegisterClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterClassViewController.swift; sourceTree = "<group>"; };
 		896633DF254C909300EBF5DF /* Aula+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aula+CoreDataClass.swift"; sourceTree = "<group>"; };
 		896633E0254C909300EBF5DF /* Aula+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aula+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		896633EC254DB0AF00EBF5DF /* ReloadDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 				8966333E254AF9B500EBF5DF /* ProfessorHomeViewController.swift */,
 				89663346254B030900EBF5DF /* CustomTableViewCell.swift */,
 				896633CF254C64F200EBF5DF /* RegisterClassViewController.swift */,
+				896633EC254DB0AF00EBF5DF /* ReloadDelegate.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				02FC7E972548E4A600040D77 /* Cadastro.swift in Sources */,
 				8966337E254B962300EBF5DF /* StarRating.swift in Sources */,
 				02E93C6A2541D99500E47726 /* AppDelegate.swift in Sources */,
+				896633ED254DB0AF00EBF5DF /* ReloadDelegate.swift in Sources */,
 				896633E1254C909300EBF5DF /* Aula+CoreDataClass.swift in Sources */,
 				896633D0254C64F200EBF5DF /* RegisterClassViewController.swift in Sources */,
 				89663347254B030900EBF5DF /* CustomTableViewCell.swift in Sources */,
