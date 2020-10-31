@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegisterClassViewConroller: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+class RegisterClassViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     let contex = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -45,8 +45,13 @@ class RegisterClassViewConroller: UIViewController, UIImagePickerControllerDeleg
     picker.dismiss(animated: true)
     }
     
-    //Falta atualizar quando publicar
     @IBAction func publish(_ sender: Any) {
+        
+        if let validation = validateInputs() {
+            alert(title: "Falha", message: validation)
+            return
+        }
+        
         let aula = Aula(context: self.contex)
         aula.tema = tema.text
         aula.requisitos = req.text
@@ -59,22 +64,46 @@ class RegisterClassViewConroller: UIViewController, UIImagePickerControllerDeleg
             try contex.save()
             reload()
         } catch {
-            alert()
+            alert(title: "Erro", message: "Erro ao cadastrar na base de dados")
         }
     }
     
-    func alert() {
-        let alert = UIAlertController(title: "Erro", message: "Erro ao cadastrar na base de dados", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Dismiss", style: .cancel)
+    func validateInputs() -> String?{
+        var menssage: String = ""
+        
+        if let text = tema.text, text.isEmpty{
+            menssage.append("Tema é um campo obrigatorio!\n")
+        }
+        if let text = learn.text, text.isEmpty{
+            menssage.append("O campo 'O que irei aprender?' é obrigatorio!\n")
+        }
+        if let text = des.text, text.isEmpty{
+            menssage.append("O campo Descriçao é obrigatorio!\n")
+        }
+        if let text = req.text, text.isEmpty{
+            menssage.append("O campo Requisitos é obrigatorio!\n")
+        }
+        if let text = price.text, text.isEmpty{
+            menssage.append("O campo Preço é obrigatorio!\n")
+        }
+        return menssage.count > 1 ? menssage : nil
+    }
+    
+    func alert(title: String, message: String, handler: @escaping (UIAlertAction) -> Void = {_ in }) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Dismiss", style: .cancel, handler: handler)
         alert.addAction(action)
         present(alert, animated: true)
     }
 }
 
-extension  RegisterClassViewConroller: ReloadDelegate {
+extension  RegisterClassViewController: ReloadDelegate {
     
     func reload() {
         reloadDelegate.reload()
-        self.navigationController?.popViewController(animated: true)
+        alert(title: "Sucesso", message: "Aula adicionada com sucesso") {_ in
+            self.navigationController?.popViewController(animated: true)
+        }
+        
     }
 }

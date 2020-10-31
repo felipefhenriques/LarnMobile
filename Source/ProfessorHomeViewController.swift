@@ -67,7 +67,7 @@ class ProfessorHomeViewController: UIViewController, UITableViewDataSource, UITa
     
     @IBAction func addClass(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Professor", bundle: Bundle.main)
-        let registerView: RegisterClassViewConroller = storyboard.instantiateViewController(withIdentifier: "RegisterClass") as! RegisterClassViewConroller
+        let registerView: RegisterClassViewController = storyboard.instantiateViewController(withIdentifier: "RegisterClass") as! RegisterClassViewController
         registerView.reloadDelegate = self
         self.navigationController?.pushViewController(registerView, animated: true)
     }

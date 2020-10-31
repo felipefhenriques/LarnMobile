@@ -151,10 +151,10 @@
             </objects>
             <point key="canvasLocation" x="-181.15942028985509" y="-2610.2678571428569"/>
         </scene>
-        <!--Register Class View Conroller-->
+        <!--Register Class View Controller-->
         <scene sceneID="1Fs-ui-3nb">
             <objects>
-                <viewController storyboardIdentifier="RegisterClass" modalPresentationStyle="fullScreen" id="Y3Y-Cj-Bfj" customClass="RegisterClassViewConroller" customModule="Larn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterClass" modalPresentationStyle="fullScreen" id="Y3Y-Cj-Bfj" customClass="RegisterClassViewController" customModule="Larn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lnp-kQ-NKG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
