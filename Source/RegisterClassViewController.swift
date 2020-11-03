@@ -32,6 +32,7 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
         if aula != nil {
             loadAula()
         }
+        print("Teste")
     }
     
     private func configElements(){
@@ -39,10 +40,11 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
         let tap = UITapGestureRecognizer(target: self, action: #selector (changeImage))
         image.isUserInteractionEnabled = true
         image.addGestureRecognizer(tap)
+        
+        self.title = "Aula"
     }
     
     @objc private func changeImage(){
-        print("Change Image")
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
@@ -130,6 +132,21 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
             }
             
         }
+        
+        self.navigationItem.rightBarButtonItem  = self.editButtonItem
+        
+        setEditing(false, animated: false)
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing,animated:animated)
+        image.isUserInteractionEnabled = editing
+        tema.isEnabled = editing
+        datePicker.isEnabled = editing
+        learn.isUserInteractionEnabled = editing
+        des.isUserInteractionEnabled = editing
+        req.isUserInteractionEnabled = editing
+        price.isEnabled = editing
     }
 }
 
