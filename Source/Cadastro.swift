@@ -86,27 +86,37 @@ class telaInicialCadastro: UIViewController, UITextFieldDelegate {
     
 
 
-class telaCadastroAluno: UIViewController {
+class telaCadastroAluno: UIViewController, UITextFieldDelegate {
     
     var objetoGerenciado: NSManagedObjectContext!
     var apelidoAluno = String()
     var senhaAluno = String()
     var emailAluno = String()
     @IBOutlet weak var lblPreencha: UILabel!
-    @IBOutlet weak var lblTeste: UILabel!
     @IBOutlet weak var txtNome: UITextField!
     @IBOutlet weak var txtCpf: UITextField!
-    @IBOutlet weak var dtNascimento: UITextField!
+    @IBOutlet weak var dtNascimento: UIDatePicker!
+    @IBOutlet weak var bttCrie: UIButton!
     
     override func viewDidLoad() {
         //Necessario para o NSManagedObjectContext não retornar nil
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         objetoGerenciado = appDelegate.persistentContainer.viewContext
+        
+        bttCrie.layer.cornerRadius = 10 
+        
+        //botao done no numberpad
+        numberPadDone(textField: txtCpf)
+        
+        txtNome.delegate = self
+        txtCpf.delegate = self
+        
+        
     }
     
     
     @IBAction func bttCadastrar(_ sender: UIButton) {
-        if(txtNome.text!.isEmpty || txtCpf.text!.isEmpty || dtNascimento.text!.isEmpty){
+        if(txtNome.text!.isEmpty || txtCpf.text!.isEmpty){
             lblPreencha.isHidden = false
         } else if txtCpf.text!.count != 11{
             lblPreencha.text = "CPF inválido"
@@ -118,14 +128,19 @@ class telaCadastroAluno: UIViewController {
         }
     }
     
+    //Função para adicionar botão done no number pad
+    func numberPadDone(textField: UITextField) {
+        let keyboardToolbar = UIToolbar()
+        keyboardToolbar.sizeToFit()
+        let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+            target: nil, action: nil)
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done,
+            target: view, action: #selector(UIView.endEditing(_:)))
+        keyboardToolbar.items = [flexBarButton, doneBarButton]
+        textField.inputAccessoryView = keyboardToolbar
+    }
+    
     func cadastraAluno(){
-        let date = Date()
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "dd\nMMMM\nyyy"
-//        let stringData = formatter.string(from: date)
-//        let formatterLabel = DateFormatter()
-//        formatterLabel.dateFormat = "dd/MM/yyyy"
-
         let entidadeEntrada = NSEntityDescription.entity(forEntityName: "Aluno", in: self.objetoGerenciado)
         let objetoEntrada = NSManagedObject(entity: entidadeEntrada!, insertInto: self.objetoGerenciado)
 
@@ -134,7 +149,7 @@ class telaCadastroAluno: UIViewController {
         objetoEntrada.setValue(emailAluno, forKey: "email")
         objetoEntrada.setValue(txtNome.text, forKey: "nome")
         objetoEntrada.setValue(txtCpf.text, forKey: "cpf")
-        objetoEntrada.setValue(date, forKey: "dataNascimento")
+        objetoEntrada.setValue(dtNascimento.date, forKey: "dataNascimento")
         objetoEntrada.setValue(true, forKey: "isAluno")
         
         do {
@@ -144,9 +159,14 @@ class telaCadastroAluno: UIViewController {
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        textField.resignFirstResponder()
+        return true
+    }
+    
 }
 
-class telaCadastroProfessor: UIViewController {
+class telaCadastroProfessor: UIViewController, UITextFieldDelegate {
     
     var objetoGerenciado: NSManagedObjectContext!
     var apelidoProfessor = String()
@@ -155,17 +175,26 @@ class telaCadastroProfessor: UIViewController {
     @IBOutlet weak var lblPreencha: UILabel!
     @IBOutlet weak var txtNome: UITextField!
     @IBOutlet weak var txtCpf: UITextField!
-    @IBOutlet weak var dtNascimento: UITextField!
+    @IBOutlet weak var dtNascimento: UIDatePicker!
     @IBOutlet weak var txtLattes: UITextField!
+    @IBOutlet weak var bttCriar: UIButton!
     
     override func viewDidLoad() {
         //Necessario para o NSManagedObjectContext não retornar nil
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         objetoGerenciado = appDelegate.persistentContainer.viewContext
+        
+        bttCriar.layer.cornerRadius = 10
+        
+        txtNome.delegate = self
+        txtCpf.delegate = self
+        txtLattes.delegate = self
+        
+        numberPadDone(textField: txtCpf)
     }
     
     @IBAction func bttCadastrar(_ sender: Any) {
-        if(txtNome.text!.isEmpty || txtCpf.text!.isEmpty || dtNascimento.text!.isEmpty){
+        if(txtNome.text!.isEmpty || txtCpf.text!.isEmpty){
             lblPreencha.isHidden = false
         } else if txtCpf.text!.count != 11{
             lblPreencha.text = "CPF inválido"
@@ -179,13 +208,6 @@ class telaCadastroProfessor: UIViewController {
     
     
     func cadastraProfessor(){
-        let date = Date()
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "dd\nMMMM\nyyy"
-//        let stringData = formatter.string(from: date)
-//        let formatterLabel = DateFormatter()
-//        formatterLabel.dateFormat = "dd/MM/yyyy"
-
         let entidadeEntrada = NSEntityDescription.entity(forEntityName: "Professor", in: self.objetoGerenciado)
         let objetoEntrada = NSManagedObject(entity: entidadeEntrada!, insertInto: self.objetoGerenciado)
 
@@ -194,8 +216,8 @@ class telaCadastroProfessor: UIViewController {
         objetoEntrada.setValue(emailProfessor, forKey: "email")
         objetoEntrada.setValue(txtNome.text, forKey: "nome")
         objetoEntrada.setValue(txtCpf.text, forKey: "cpf")
-        objetoEntrada.setValue(date, forKey: "dataNascimento")
-        objetoEntrada.setValue(true, forKey: "isAluno")
+        objetoEntrada.setValue(dtNascimento.date, forKey: "dataNascimento")
+        objetoEntrada.setValue(false, forKey: "isAluno")
         objetoEntrada.setValue(txtLattes.text, forKey: "lattes")
         
         do {
@@ -205,9 +227,26 @@ class telaCadastroProfessor: UIViewController {
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    //Função para adicionar botão done no number pad
+    func numberPadDone(textField: UITextField) {
+        let keyboardToolbar = UIToolbar()
+        keyboardToolbar.sizeToFit()
+        let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+            target: nil, action: nil)
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done,
+            target: view, action: #selector(UIView.endEditing(_:)))
+        keyboardToolbar.items = [flexBarButton, doneBarButton]
+        textField.inputAccessoryView = keyboardToolbar
+    }
+    
 }
 
-class carregaDados: UIViewController {
+class carregaDados: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var segmentedOption: UISegmentedControl!
     public var user:[NSManagedObject] = []
@@ -219,32 +258,82 @@ class carregaDados: UIViewController {
     @IBOutlet weak var lblDataNascimento: UILabel!
     @IBOutlet weak var lblisAluno: UILabel!
     @IBOutlet weak var lblUrl: UILabel!
+    @IBOutlet weak var txtEntrada: UITextField!
+    var dateFormatter = DateFormatter()
+    
     
     override func viewDidLoad() {
         lblUrl.isHidden = true
+        txtEntrada.delegate = self
+        
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        
+        
     }
     
     @IBAction func mudaUser(_ sender: UISegmentedControl) {
-        if(segmentedOption.selectedSegmentIndex == 0) {
-            lerEntradas(entidade: "Aluno")
-            lblApelido.text = (user[0].value(forKey: "apelido") as! String)
-            lblSenha.text = (user[0].value(forKey: "senha") as! String)
-            lblEmail.text = (user[0].value(forKey: "email") as! String)
-            lblNome.text = (user[0].value(forKey: "nome") as! String)
-            lblCpf.text = (user[0].value(forKey: "cpf") as! String)
-            lblUrl.isHidden = true
-        } else {
-            lerEntradas(entidade: "Professor")
-            lblApelido.text = (user[0].value(forKey: "apelido") as! String)
-            lblSenha.text = (user[0].value(forKey: "senha") as! String)
-            lblEmail.text = (user[0].value(forKey: "email") as! String)
-            lblNome.text = (user[0].value(forKey: "nome") as! String)
-            lblCpf.text = (user[0].value(forKey: "cpf") as! String)
-            lblUrl.isHidden = false
-            lblUrl.text = (user[0].value(forKey: "lattes") as! String)
-    }
         
     }
+    @IBAction func voltarHome(_ sender: UIButton) {
+        performSegue(withIdentifier: "voltaHome", sender: self)
+    }
+    
+    @IBAction func bttBuscar(_ sender: Any) {
+        if(segmentedOption.selectedSegmentIndex == 0) {
+            lerEntradas(entidade: "Aluno")
+            for i in 0...user.count-1{
+                if (user[i].value(forKey: "cpf") as! String) == txtEntrada.text {
+                    lblApelido.text = (user[i].value(forKey: "apelido") as! String)
+                    lblSenha.text = (user[i].value(forKey: "senha") as! String)
+                    lblEmail.text = (user[i].value(forKey: "email") as! String)
+                    lblNome.text = (user[i].value(forKey: "nome") as! String)
+                    lblCpf.text = (user[i].value(forKey: "cpf") as! String)
+                    lblDataNascimento.text = dateFormatter.string(from: user[i].value(forKey: "dataNascimento") as! Date)
+                    lblisAluno.text = String((user[i].value(forKey: "isAluno") as! Bool))
+                    lblUrl.isHidden = true
+                    break
+                } else {
+                    lblApelido.text = "Não tem"
+                    lblSenha.text = "Não tem"
+                    lblEmail.text = "Não tem"
+                    lblEmail.text = "Não tem"
+                    lblNome.text = "Não tem"
+                    lblCpf.text = "Não tem"
+                    lblDataNascimento.text = "Não tem"
+                    lblisAluno.text = "Não tem"
+                    lblUrl.isHidden = true
+                }
+            }
+                    
+        }  else {
+            lerEntradas(entidade: "Professor")
+            for i in 0...user.count-1 {
+                if (user[i].value(forKey: "cpf") as! String) == txtEntrada.text{
+                    lblApelido.text = (user[i].value(forKey: "apelido") as! String)
+                    lblSenha.text = (user[i].value(forKey: "senha") as! String)
+                    lblEmail.text = (user[i].value(forKey: "email") as! String)
+                    lblNome.text = (user[i].value(forKey: "nome") as! String)
+                    lblCpf.text = (user[i].value(forKey: "cpf") as! String)
+                    lblDataNascimento.text = dateFormatter.string(from: user[i].value(forKey: "dataNascimento") as! Date)
+                    lblisAluno.text = String((user[i].value(forKey: "isAluno") as! Bool))
+                    lblUrl.isHidden = false
+                    lblUrl.text = (user[i].value(forKey: "lattes") as! String)
+                } else {
+                    lblApelido.text = "Não tem"
+                    lblSenha.text = "Não tem"
+                    lblEmail.text = "Não tem"
+                    lblEmail.text = "Não tem"
+                    lblNome.text = "Não tem"
+                    lblCpf.text = "Não tem"
+                    lblDataNascimento.text = "Não tem"
+                    lblisAluno.text = "Não tem"
+                    lblUrl.text = "Não tem"
+                }
+        }
+    }
+}
+        
+    
     
     func lerEntradas(entidade: String){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -261,5 +350,12 @@ class carregaDados: UIViewController {
             }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        textField.resignFirstResponder()
+        return true
+    }
+    
 }
+
+
 
