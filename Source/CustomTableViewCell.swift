@@ -14,6 +14,18 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var ratingImg: StarRating!
     @IBOutlet weak var sold: UILabel!
     
-    //Passar os valore apartir do model aula
-    //Criar o Modelo
+    var aula: Aula! { didSet {setup(aula: aula)}}
+    
+    func setup(aula: Aula){
+//        self.aula = aula
+        
+        if let imgData = aula.image {
+            img.image = UIImage(data: imgData)
+        } else {
+            img.image = UIImage(named: "defaultImage")
+        }
+        
+        title.text = aula.tema
+        sold.text = aula.valor?.stringValue
+    }
 }

@@ -11,5 +11,5 @@ import CoreData
 
 @objc(Aula)
 public class Aula: NSManagedObject {
-
+    
 }

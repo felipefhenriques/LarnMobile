@@ -21,20 +21,24 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
     
     var reloadDelegate: ReloadDelegate!
     
+    var aula: Aula?
+    
     override func viewDidLoad() {
         if #available(iOS 13.4, *) {
                 datePicker.preferredDatePickerStyle = .compact
         }
+        configElements()
         
-        setupElements()
+        if aula != nil {
+            loadAula()
+        }
     }
     
-    private func setupElements(){
+    private func configElements(){
         //Image
         let tap = UITapGestureRecognizer(target: self, action: #selector (changeImage))
         image.isUserInteractionEnabled = true
         image.addGestureRecognizer(tap)
-
     }
     
     @objc private func changeImage(){
@@ -52,6 +56,7 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
     picker.dismiss(animated: true)
     }
     
+    // Refatorar  Melhorar
     @IBAction private func publish(_ sender: Any) {
         
         if let validation = validateInputs() {
@@ -59,14 +64,20 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
             return
         }
         
-        let aula = Aula(context: self.contex)
-        aula.tema = tema.text
-        aula.requisitos = req.text
-        aula.conteudo = learn.text
-        aula.descricao = des.text
-        aula.data = datePicker.date
-        aula.valor = NSDecimalNumber(string: price.text)
-        aula.image = image.image?.pngData()
+        var aulaAltera:Aula
+        if let aula = aula {
+            aulaAltera = aula
+        } else {
+            aulaAltera = Aula(context: self.contex)
+            aulaAltera.id = UUID()
+        }
+        aulaAltera.tema = tema.text
+        aulaAltera.requisitos = req.text
+        aulaAltera.conteudo = learn.text
+        aulaAltera.descricao = des.text
+        aulaAltera.data = datePicker.date
+        aulaAltera.valor = NSDecimalNumber(string: price.text)
+        aulaAltera.image = image.image?.pngData()
         do {
             try contex.save()
             reload()
@@ -101,6 +112,24 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
         let action = UIAlertAction(title: "Dismiss", style: .cancel, handler: handler)
         alert.addAction(action)
         present(alert, animated: true)
+    }
+    
+    func loadAula() {
+        if let aula = self.aula {
+            tema.text = aula.tema
+            req.text = aula.requisitos
+            learn.text = aula.conteudo
+            des.text = self.aula?.descricao
+            datePicker.date = self.aula?.data ?? Date()
+            
+            if let valor = aula.valor {
+                price.text = valor.stringValue
+            }
+            if let imgData = aula.image {
+                image.image = UIImage(data: imgData)
+            }
+            
+        }
     }
 }
 

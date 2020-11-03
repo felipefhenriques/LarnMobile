@@ -7,6 +7,7 @@
         <attribute name="conteudo" optional="YES" attributeType="String"/>
         <attribute name="data" attributeType="Date" defaultDateTimeInterval="625756260" usesScalarValueType="NO"/>
         <attribute name="descricao" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="image" optional="YES" attributeType="Binary"/>
         <attribute name="requisitos" optional="YES" attributeType="String"/>
         <attribute name="tema" attributeType="String"/>
@@ -18,7 +19,7 @@
     </entity>
     <elements>
         <element name="Aluno" positionX="-300.8404541015625" positionY="-71.65936279296875" width="128" height="58"/>
-        <element name="Aula" positionX="-62.7176513671875" positionY="-173.1337280273438" width="128" height="149"/>
+        <element name="Aula" positionX="-62.7176513671875" positionY="-173.1337280273438" width="128" height="164"/>
         <element name="Materia" positionX="-70.8380126953125" positionY="11.00665283203125" width="128" height="58"/>
     </elements>
 </model>

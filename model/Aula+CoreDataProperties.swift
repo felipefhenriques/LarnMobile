@@ -15,7 +15,7 @@ extension Aula {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Aula> {
         return NSFetchRequest<Aula>(entityName: "Aula")
     }
-
+    @NSManaged public var id: UUID?
     @NSManaged public var data: Date?
     @NSManaged public var tema: String?
     @NSManaged public var valor: NSDecimalNumber?
