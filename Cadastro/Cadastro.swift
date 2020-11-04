@@ -249,7 +249,7 @@ class telaCadastroProfessor: UIViewController, UITextFieldDelegate {
 class carregaDados: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var segmentedOption: UISegmentedControl!
-    public var user:[NSManagedObject] = []
+    var user:[NSManagedObject] = []
     @IBOutlet weak var lblApelido: UILabel!
     @IBOutlet weak var lblSenha: UILabel!
     @IBOutlet weak var lblEmail: UILabel!

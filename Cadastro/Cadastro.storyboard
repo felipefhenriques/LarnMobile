@@ -69,6 +69,9 @@
                                 <state key="normal" title="Entrar">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Hr0-je-LMH" kind="show" id="Xz8-18-e27"/>
+                                </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preencha todos os campos!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WaP-yA-muA">
                                 <rect key="frame" x="112" y="447" width="191" height="18"/>
@@ -248,6 +251,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tBz-De-Dne" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="734.78260869565224" y="60.9375"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="WBO-Ey-D2G">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" id="Hr0-je-LMH" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="irc-xV-pwt"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pyK-XM-O5B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="15" y="490"/>
         </scene>
         <!--Tela Cadastro Professor-->
         <scene sceneID="sxD-aB-wMQ">
@@ -498,7 +511,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="USI-HM-mUS"/>
-        <segue reference="gHV-DE-jBi"/>
+        <segue reference="rnN-rs-HUg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
