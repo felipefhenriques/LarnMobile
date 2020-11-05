@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="20A5395g" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Aluno" representedClassName="Aluno" syncable="YES" codeGenerationType="class">
+        <attribute name="apelido" optional="YES" attributeType="String"/>
+        <attribute name="cpf" optional="YES" attributeType="String"/>
+        <attribute name="dataNascimento" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="isAluno" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="nome" optional="YES" attributeType="String"/>
+        <attribute name="senha" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Aula" representedClassName="Aula" syncable="YES">
+        <attribute name="conteudo" optional="YES" attributeType="String"/>
+        <attribute name="data" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="descricao" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="requisitos" optional="YES" attributeType="String"/>
+        <attribute name="tema" attributeType="String"/>
+        <attribute name="valor" attributeType="Decimal" defaultValueString="0.0"/>
+    </entity>
+    <entity name="Professor" representedClassName="Professor" syncable="YES" codeGenerationType="class">
+        <attribute name="apelido" optional="YES" attributeType="String"/>
+        <attribute name="cpf" optional="YES" attributeType="String"/>
+        <attribute name="dataNascimento" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="isAluno" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="lattes" optional="YES" attributeType="String"/>
+        <attribute name="nome" optional="YES" attributeType="String"/>
+        <attribute name="senha" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Aluno" positionX="-63" positionY="-18" width="128" height="58"/>
+        <element name="Aluno" positionX="-63" positionY="-18" width="128" height="148"/>
+        <element name="Professor" positionX="-63" positionY="27" width="128" height="163"/>
+        <element name="Aula" positionX="-54" positionY="81" width="128" height="149"/>
     </elements>
 </model>
