@@ -20,14 +20,6 @@
 		02EDE3412552C4CC0010C721 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EDE3402552C4CC0010C721 /* Login.swift */; };
 		02FC7E972548E4A600040D77 /* Cadastro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FC7E962548E4A600040D77 /* Cadastro.swift */; };
 		02FC7E9F2548E4B700040D77 /* Cadastro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02FC7E9E2548E4B700040D77 /* Cadastro.storyboard */; };
-		89663335254AF5DB00EBF5DF /* Professor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89663334254AF5DB00EBF5DF /* Professor.storyboard */; };
-		8966333F254AF9B500EBF5DF /* ProfessorHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966333E254AF9B500EBF5DF /* ProfessorHomeViewController.swift */; };
-		89663347254B030900EBF5DF /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89663346254B030900EBF5DF /* CustomTableViewCell.swift */; };
-		8966337E254B962300EBF5DF /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966337D254B962300EBF5DF /* StarRating.swift */; };
-		896633D0254C64F200EBF5DF /* RegisterClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896633CF254C64F200EBF5DF /* RegisterClassViewController.swift */; };
-		896633E1254C909300EBF5DF /* Aula+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896633DF254C909300EBF5DF /* Aula+CoreDataClass.swift */; };
-		896633E2254C909300EBF5DF /* Aula+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896633E0254C909300EBF5DF /* Aula+CoreDataProperties.swift */; };
-		896633ED254DB0AF00EBF5DF /* ReloadDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896633EC254DB0AF00EBF5DF /* ReloadDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,14 +59,6 @@
 		02EDE3402552C4CC0010C721 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		02FC7E962548E4A600040D77 /* Cadastro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cadastro.swift; sourceTree = "<group>"; };
 		02FC7E9E2548E4B700040D77 /* Cadastro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cadastro.storyboard; sourceTree = "<group>"; };
-		89663334254AF5DB00EBF5DF /* Professor.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Professor.storyboard; sourceTree = "<group>"; };
-		8966333E254AF9B500EBF5DF /* ProfessorHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessorHomeViewController.swift; sourceTree = "<group>"; };
-		89663346254B030900EBF5DF /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		8966337D254B962300EBF5DF /* StarRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
-		896633CF254C64F200EBF5DF /* RegisterClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterClassViewController.swift; sourceTree = "<group>"; };
-		896633DF254C909300EBF5DF /* Aula+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aula+CoreDataClass.swift"; sourceTree = "<group>"; };
-		896633E0254C909300EBF5DF /* Aula+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aula+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		896633EC254DB0AF00EBF5DF /* ReloadDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,13 +89,9 @@
 		02E93C5D2541D99500E47726 = {
 			isa = PBXGroup;
 			children = (
-				89663393254C4DC200EBF5DF /* model */,
-				02FC7EA32548E4BF00040D77 /* Source */,
-				02FC7E952548E49400040D77 /* Storyboards */,
 				02EDE3452552D21C0010C721 /* Cadastro */,
 				02EDE3372552C41A0010C721 /* Login */,
 				02E93C682541D99500E47726 /* Larn */,
-				8966337C254B95FF00EBF5DF /* View */,
 				02E93C822541D99700E47726 /* LarnTests */,
 				02E93C8D2541D99700E47726 /* LarnUITests */,
 				02E93C672541D99500E47726 /* Products */,
@@ -164,8 +144,6 @@
 		02EDE3372552C41A0010C721 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				02FC7E9E2548E4B700040D77 /* Cadastro.storyboard */,
-				89663334254AF5DB00EBF5DF /* Professor.storyboard */,
 				02EDE33A2552C4AD0010C721 /* Login.storyboard */,
 				02EDE3402552C4CC0010C721 /* Login.swift */,
 			);
@@ -177,29 +155,8 @@
 			children = (
 				02FC7E9E2548E4B700040D77 /* Cadastro.storyboard */,
 				02FC7E962548E4A600040D77 /* Cadastro.swift */,
-				8966333E254AF9B500EBF5DF /* ProfessorHomeViewController.swift */,
-				89663346254B030900EBF5DF /* CustomTableViewCell.swift */,
-				896633CF254C64F200EBF5DF /* RegisterClassViewController.swift */,
-				896633EC254DB0AF00EBF5DF /* ReloadDelegate.swift */,
 			);
 			path = Cadastro;
-			sourceTree = "<group>";
-		};
-		8966337C254B95FF00EBF5DF /* View */ = {
-			isa = PBXGroup;
-			children = (
-				8966337D254B962300EBF5DF /* StarRating.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		89663393254C4DC200EBF5DF /* model */ = {
-			isa = PBXGroup;
-			children = (
-				896633DF254C909300EBF5DF /* Aula+CoreDataClass.swift */,
-				896633E0254C909300EBF5DF /* Aula+CoreDataProperties.swift */,
-			);
-			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,7 +265,6 @@
 				02E93C792541D99700E47726 /* LaunchScreen.storyboard in Resources */,
 				02E93C762541D99700E47726 /* Assets.xcassets in Resources */,
 				02E93C712541D99500E47726 /* Main.storyboard in Resources */,
-				89663335254AF5DB00EBF5DF /* Professor.storyboard in Resources */,
 				02EDE33B2552C4AD0010C721 /* Login.storyboard in Resources */,
 				02FC7E9F2548E4B700040D77 /* Cadastro.storyboard in Resources */,
 			);
@@ -337,16 +293,9 @@
 			files = (
 				02E93C6E2541D99500E47726 /* ViewController.swift in Sources */,
 				02FC7E972548E4A600040D77 /* Cadastro.swift in Sources */,
-				8966337E254B962300EBF5DF /* StarRating.swift in Sources */,
 				02E93C6A2541D99500E47726 /* AppDelegate.swift in Sources */,
-				896633ED254DB0AF00EBF5DF /* ReloadDelegate.swift in Sources */,
-				896633E1254C909300EBF5DF /* Aula+CoreDataClass.swift in Sources */,
-				896633D0254C64F200EBF5DF /* RegisterClassViewController.swift in Sources */,
-				89663347254B030900EBF5DF /* CustomTableViewCell.swift in Sources */,
 				02EDE3412552C4CC0010C721 /* Login.swift in Sources */,
 				02E93C742541D99500E47726 /* Larn.xcdatamodeld in Sources */,
-				8966333F254AF9B500EBF5DF /* ProfessorHomeViewController.swift in Sources */,
-				896633E2254C909300EBF5DF /* Aula+CoreDataProperties.swift in Sources */,
 				02E93C6C2541D99500E47726 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -690,7 +639,6 @@
 			currentVersion = 02E93C732541D99500E47726 /* Larn.xcdatamodel */;
 			path = Larn.xcdatamodeld;
 			sourceTree = "<group>";
-			usesTabs = 0;
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
