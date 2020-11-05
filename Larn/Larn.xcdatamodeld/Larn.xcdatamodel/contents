@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="20A5395g" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Aluno" representedClassName="Aluno" syncable="YES" codeGenerationType="class">
         <attribute name="apelido" optional="YES" attributeType="String"/>
         <attribute name="cpf" optional="YES" attributeType="String"/>
@@ -19,23 +19,7 @@
         <attribute name="nome" optional="YES" attributeType="String"/>
         <attribute name="senha" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="Aula" representedClassName="Aula" syncable="YES">
-        <attribute name="conteudo" optional="YES" attributeType="String"/>
-        <attribute name="data" attributeType="Date" defaultDateTimeInterval="625756260" usesScalarValueType="NO"/>
-        <attribute name="descricao" optional="YES" attributeType="String"/>
-        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="image" optional="YES" attributeType="Binary"/>
-        <attribute name="requisitos" optional="YES" attributeType="String"/>
-        <attribute name="tema" attributeType="String"/>
-        <attribute name="valor" attributeType="Decimal" defaultValueString="0.0"/>
-        <relationship name="materia" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Materia"/>
-    </entity>
-    <entity name="Materia" representedClassName="Materia" syncable="YES" codeGenerationType="class">
-        <attribute name="nome" optional="YES" attributeType="String"/>
-    </entity>
     <elements>
-        <element name="Aula" positionX="-62.7176513671875" positionY="-173.1337280273438" width="128" height="164"/>
-        <element name="Materia" positionX="-70.8380126953125" positionY="11.00665283203125" width="128" height="58"/>
         <element name="Aluno" positionX="-63" positionY="-18" width="128" height="148"/>
         <element name="Professor" positionX="-63" positionY="27" width="128" height="163"/>
     </elements>
