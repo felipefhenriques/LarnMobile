@@ -17,6 +17,7 @@ class telaInicialCadastro: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtSenha: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var lblPreencha: UILabel!
+    var user:[NSManagedObject] = []
     
     override func viewDidLoad() {
         bttContinuar.layer.cornerRadius = 10
@@ -27,24 +28,67 @@ class telaInicialCadastro: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func bttContinuar(_ sender: UIButton) {
-        if (txtApelido.text!.isEmpty || txtSenha.text!.isEmpty || txtEmail.text!.isEmpty) {
-            lblPreencha.isHidden = false
-        } else if (txtApelido.text!.count < 5){
-            lblPreencha.text = "Apelido deve ter no mínimo 5 caracteres"
-            lblPreencha.isHidden = false
-        } else if (txtSenha.text!.count < 4){
-            lblPreencha.text = "A senha deve ter no mínimo 4 caracteres"
+        if checkingProtocols() {
+            if (checkUnique(entidade: "Aluno") && checkUnique(entidade: "Professor")){
+                lblPreencha.isHidden = true
+                if(segmentedOption.selectedSegmentIndex == 0) {
+                    performSegue(withIdentifier: "aluno", sender: self)
+                } else {
+                    performSegue(withIdentifier: "professor", sender: self)
+                }
+            }
         } else {
-            lblPreencha.isHidden = true
-            if(segmentedOption.selectedSegmentIndex == 0) {
-                performSegue(withIdentifier: "aluno", sender: self)
-            } else {
-                performSegue(withIdentifier: "professor", sender: self)
+            
         }
-        }
+            
+        
     }
         
         
+    func checkingProtocols() -> Bool{
+        if (txtApelido.text!.isEmpty || txtSenha.text!.isEmpty || txtEmail.text!.isEmpty) {
+            lblPreencha.isHidden = false
+            return false
+        } else if (txtApelido.text!.count < 5) {
+            lblPreencha.text = "Apelido deve ter no mínimo 5 caracteres"
+            lblPreencha.isHidden = false
+            return false
+        } else if (txtSenha.text!.count < 4){
+            lblPreencha.text = "A senha deve ter no mínimo 4 caracteres"
+            lblPreencha.isHidden = false
+            return false
+        } else if (isValidEmail(txtEmail.text!) == false){
+            lblPreencha.text = "E-mail inválido"
+            lblPreencha.isHidden = false
+            return false
+        } else {
+            lblPreencha.isHidden = true
+            return true
+        }
+    }
+    
+    func checkUnique(entidade: String) -> Bool{
+        lerEntradas(entidade: entidade, user: &user)
+        if user.count > 0 {
+        for i in 0...user.count-1 {
+            if((user[i].value(forKey: "apelido") as! String) == txtApelido.text) {
+                lblPreencha.text = "O apelido já está em uso"
+                lblPreencha.isHidden = false
+                return false
+            } else if ((user[i].value(forKey: "email") as! String) == txtEmail.text) {
+                lblPreencha.text = "O e-mail já está em uso"
+                lblPreencha.isHidden = false
+                return false
+            } else {
+                return true
+            }
+        }
+        } else {
+            return true
+        }
+    
+    return false
+}
     
     //passando dados
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -62,25 +106,46 @@ class telaInicialCadastro: UIViewController, UITextFieldDelegate {
      }
     
     
+    //fecha teclado ao clicar em done/concluído
     func textFieldShouldReturn(_ textField: UITextField) -> Bool{
         textField.resignFirstResponder()
         return true
+    }
+    
+    //checa e-mails
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
     }
     
     @IBAction func bttApagarRegistros(_ sender: Any) {
                 let context = ( UIApplication.shared.delegate as! AppDelegate ).persistentContainer.viewContext
                 let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Aluno")
                 let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
-                do
-                {
+                do {
                     try context.execute(deleteRequest)
                     try context.save()
-                }
-                catch
-                {
+                } catch {
                     print ("There was an error")
                 }
-            }
+        
+        let deleteFetch2 = NSFetchRequest<NSFetchRequestResult>(entityName: "Professor")
+        let deleteRequest2 = NSBatchDeleteRequest(fetchRequest: deleteFetch2)
+        do {
+            try context.execute(deleteRequest2)
+            try context.save()
+        } catch {
+            print ("There was an error")
+        }
+        
+        
+        }
+    
+   
+    
+
     
 }
     
@@ -88,6 +153,7 @@ class telaInicialCadastro: UIViewController, UITextFieldDelegate {
 
 class telaCadastroAluno: UIViewController, UITextFieldDelegate {
     
+    var user: [NSManagedObject] = []
     var objetoGerenciado: NSManagedObjectContext!
     var apelidoAluno = String()
     var senhaAluno = String()
@@ -120,6 +186,9 @@ class telaCadastroAluno: UIViewController, UITextFieldDelegate {
             lblPreencha.isHidden = false
         } else if txtCpf.text!.count != 11{
             lblPreencha.text = "CPF inválido"
+            lblPreencha.isHidden = false
+        } else if checaCpf(entidade: "Aluno", user: &user, textField: txtCpf) == false{
+            lblPreencha.text = "CPF já cadastrado"
             lblPreencha.isHidden = false
         } else {
             lblPreencha.isHidden = true
@@ -168,6 +237,7 @@ class telaCadastroAluno: UIViewController, UITextFieldDelegate {
 
 class telaCadastroProfessor: UIViewController, UITextFieldDelegate {
     
+    var user: [NSManagedObject] = []
     var objetoGerenciado: NSManagedObjectContext!
     var apelidoProfessor = String()
     var senhaProfessor = String()
@@ -198,6 +268,9 @@ class telaCadastroProfessor: UIViewController, UITextFieldDelegate {
             lblPreencha.isHidden = false
         } else if txtCpf.text!.count != 11{
             lblPreencha.text = "CPF inválido"
+            lblPreencha.isHidden = false
+        } else if checaCpf(entidade: "Professor", user: &user, textField: txtCpf) == false{
+            lblPreencha.text = "CPF já cadastrado"
             lblPreencha.isHidden = false
         } else {
             lblPreencha.isHidden = true
@@ -245,6 +318,7 @@ class telaCadastroProfessor: UIViewController, UITextFieldDelegate {
     }
     
 }
+
 
 class carregaDados: UIViewController, UITextFieldDelegate {
     
@@ -357,5 +431,40 @@ class carregaDados: UIViewController, UITextFieldDelegate {
     
 }
 
+
+
+
+
+func checaCpf(entidade: String, user: inout [NSManagedObject], textField: UITextField) -> Bool{
+    lerEntradas(entidade: entidade, user: &user)
+    
+    if user.count > 0 {
+        for i in 0...user.count-1 {
+            if(textField.text == ((user[i].value(forKey: "cpf")) as! String)){
+                return false
+            } else {
+                return true
+            }
+        }
+        return false
+        } else {
+            return true
+    }
+}
+
+func lerEntradas(entidade: String, user: inout [NSManagedObject]){
+    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+      return
+    }
+    
+    let managedContext = appDelegate.persistentContainer.viewContext
+    let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entidade)
+    
+    do {
+         user = try managedContext.fetch(fetchRequest).reversed()
+            } catch let error as NSError {
+        print("Não foi possível carregar os dados. \(error), \(error.userInfo)")
+        }
+}
 
 
