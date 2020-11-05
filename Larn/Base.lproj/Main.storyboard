@@ -24,7 +24,7 @@
                                     <color key="titleShadowColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BbY-LE-dXy" kind="showDetail" id="Acs-dS-TR6"/>
+                                    <segue destination="BbY-LE-dXy" kind="show" id="Acs-dS-TR6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTa-dJ-Yz1">
@@ -52,10 +52,10 @@
             </objects>
             <point key="canvasLocation" x="139" y="94"/>
         </scene>
-        <!--Cadastro-->
+        <!--Professor-->
         <scene sceneID="G0H-aa-7m6">
             <objects>
-                <viewControllerPlaceholder storyboardName="Cadastro" id="BbY-LE-dXy" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Professor" id="BbY-LE-dXy" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="1Ct-LO-lUT"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSb-5q-5Bp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
