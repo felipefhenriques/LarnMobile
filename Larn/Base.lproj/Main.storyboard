@@ -17,13 +17,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="occ-sy-97J">
-                                <rect key="frame" x="173" y="433" width="68" height="30"/>
+                                <rect key="frame" x="170.5" y="433" width="73" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Cadastrar">
                                     <color key="titleColor" systemColor="labelColor"/>
                                     <color key="titleShadowColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
                                     <segue destination="BbY-LE-dXy" kind="show" id="Acs-dS-TR6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTa-dJ-Yz1">
+                                <rect key="frame" x="186" y="479" width="41" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                    <color key="titleShadowColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="5UM-GT-TRU" kind="show" id="18g-6D-R29"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -48,6 +61,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSb-5q-5Bp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="616" y="156"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="x7U-H2-Kd5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" id="5UM-GT-TRU" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="MN4-9U-DLs"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PEZ-rw-C6g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="593" y="265"/>
         </scene>
     </scenes>
     <resources>
