@@ -21,7 +21,6 @@
 		02FC7E972548E4A600040D77 /* Cadastro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FC7E962548E4A600040D77 /* Cadastro.swift */; };
 		02FC7E9F2548E4B700040D77 /* Cadastro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02FC7E9E2548E4B700040D77 /* Cadastro.storyboard */; };
 		89BFF0D225542D5D00AE627F /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFF0CF25542D5C00AE627F /* CustomTableViewCell.swift */; };
-		89BFF0D325542D5D00AE627F /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFF0D025542D5D00AE627F /* CustomCollectionView.swift */; };
 		89BFF0D425542D5D00AE627F /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFF0D125542D5D00AE627F /* StarRating.swift */; };
 		89BFF0DB25542D9E00AE627F /* Professor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89BFF0DA25542D9E00AE627F /* Professor.storyboard */; };
 		89BFF0E025542DAB00AE627F /* ProfessorHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFF0DF25542DAB00AE627F /* ProfessorHomeViewController.swift */; };
@@ -69,7 +68,6 @@
 		02FC7E962548E4A600040D77 /* Cadastro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cadastro.swift; sourceTree = "<group>"; };
 		02FC7E9E2548E4B700040D77 /* Cadastro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cadastro.storyboard; sourceTree = "<group>"; };
 		89BFF0CF25542D5C00AE627F /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		89BFF0D025542D5D00AE627F /* CustomCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
 		89BFF0D125542D5D00AE627F /* StarRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
 		89BFF0DA25542D9E00AE627F /* Professor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Professor.storyboard; sourceTree = "<group>"; };
 		89BFF0DF25542DAB00AE627F /* ProfessorHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorHomeViewController.swift; sourceTree = "<group>"; };
@@ -184,7 +182,6 @@
 		89BFF0CE25542D2B00AE627F /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				89BFF0D025542D5D00AE627F /* CustomCollectionView.swift */,
 				89BFF0CF25542D5C00AE627F /* CustomTableViewCell.swift */,
 				89BFF0D125542D5D00AE627F /* StarRating.swift */,
 			);
@@ -369,7 +366,6 @@
 				89BFF0F125542DF500AE627F /* Aula+CoreDataClass.swift in Sources */,
 				02E93C742541D99500E47726 /* Larn.xcdatamodeld in Sources */,
 				02E93C6C2541D99500E47726 /* SceneDelegate.swift in Sources */,
-				89BFF0D325542D5D00AE627F /* CustomCollectionView.swift in Sources */,
 				89BFF0F025542DF500AE627F /* Aula+CoreDataProperties.swift in Sources */,
 				89BFF0E025542DAB00AE627F /* ProfessorHomeViewController.swift in Sources */,
 				89BFF0F625542E2800AE627F /* ReloadDelegate.swift in Sources */,

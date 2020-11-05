@@ -74,7 +74,6 @@ extension ProfessorHomeViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Professor", bundle: Bundle.main)
         let registerView: RegisterClassViewController = storyboard.instantiateViewController(withIdentifier: "RegisterClass") as! RegisterClassViewController
-        print(aulas[indexPath.row].tema)
         registerView.aula = aulas[indexPath.row]
         registerView.reloadDelegate = self
         self.navigationController?.pushViewController(registerView, animated: true)
