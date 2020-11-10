@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Meus Cursor-->
+        <!--Meus Cursos-->
         <scene sceneID="rKm-0m-gbE">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="QFl-SF-dJV" customClass="ProfessorHomeViewController" customModule="Larn" customModuleProvider="target" sceneMemberID="viewController">
@@ -136,7 +136,7 @@
                             <constraint firstItem="dg2-Cu-lY8" firstAttribute="trailing" secondItem="NxL-5q-MQm" secondAttribute="trailing" id="uSF-6q-IPf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Meus Cursor" id="DWZ-zT-dLq">
+                    <navigationItem key="navigationItem" title="Meus Cursos" id="DWZ-zT-dLq">
                         <barButtonItem key="rightBarButtonItem" title="Add" image="plus" catalog="system" id="Y3Z-nO-WqM">
                             <connections>
                                 <action selector="addClass:" destination="QFl-SF-dJV" id="aUW-Ik-yYi"/>

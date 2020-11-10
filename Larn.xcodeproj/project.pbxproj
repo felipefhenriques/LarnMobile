@@ -18,6 +18,7 @@
 		02E93C8F2541D99700E47726 /* LarnUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E93C8E2541D99700E47726 /* LarnUITests.swift */; };
 		02EDE33B2552C4AD0010C721 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02EDE33A2552C4AD0010C721 /* Login.storyboard */; };
 		02EDE3412552C4CC0010C721 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EDE3402552C4CC0010C721 /* Login.swift */; };
+		02F20D12255B26F70057EF34 /* Busca.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02F20D11255B26F70057EF34 /* Busca.storyboard */; };
 		02FC7E972548E4A600040D77 /* Cadastro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FC7E962548E4A600040D77 /* Cadastro.swift */; };
 		02FC7E9F2548E4B700040D77 /* Cadastro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02FC7E9E2548E4B700040D77 /* Cadastro.storyboard */; };
 		89357F06255884A50058BE03 /* Mock Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89357F05255884A50058BE03 /* Mock Bundle.swift */; };
@@ -76,6 +77,7 @@
 		02E93C902541D99700E47726 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02EDE33A2552C4AD0010C721 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		02EDE3402552C4CC0010C721 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		02F20D11255B26F70057EF34 /* Busca.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Busca.storyboard; sourceTree = "<group>"; };
 		02FC7E962548E4A600040D77 /* Cadastro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cadastro.swift; sourceTree = "<group>"; };
 		02FC7E9E2548E4B700040D77 /* Cadastro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cadastro.storyboard; sourceTree = "<group>"; };
 		89357F05255884A50058BE03 /* Mock Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mock Bundle.swift"; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				89BFF12125543AFE00AE627F /* Aluno */,
 				89BFF0F525542E2800AE627F /* ReloadDelegate.swift */,
+				02F20D10255B26D00057EF34 /* Busca */,
 				89BFF0ED25542DE400AE627F /* Model */,
 				89BFF0D825542D6900AE627F /* Professor */,
 				89BFF0CE25542D2B00AE627F /* CustomViews */,
@@ -203,6 +206,7 @@
 			path = Cadastro;
 			sourceTree = "<group>";
 		};
+<<<<<<< Updated upstream
 		89357F12255889FE0058BE03 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +217,14 @@
 				89357F272558B5200058BE03 /* SmallTableCell.swift */,
 			);
 			path = CollectionView;
+=======
+		02F20D10255B26D00057EF34 /* Busca */ = {
+			isa = PBXGroup;
+			children = (
+				02F20D11255B26F70057EF34 /* Busca.storyboard */,
+			);
+			path = Busca;
+>>>>>>> Stashed changes
 			sourceTree = "<group>";
 		};
 		89BFF0CE25542D2B00AE627F /* CustomViews */ = {
@@ -377,6 +389,7 @@
 			files = (
 				02E93C792541D99700E47726 /* LaunchScreen.storyboard in Resources */,
 				02E93C762541D99700E47726 /* Assets.xcassets in Resources */,
+				02F20D12255B26F70057EF34 /* Busca.storyboard in Resources */,
 				89BFF0DB25542D9E00AE627F /* Professor.storyboard in Resources */,
 				02E93C712541D99500E47726 /* Main.storyboard in Resources */,
 				89BFF12325543C9500AE627F /* Aluno.storyboard in Resources */,
