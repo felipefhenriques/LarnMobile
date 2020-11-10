@@ -27,6 +27,8 @@
 		89357F1E255890110058BE03 /* MediumTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89357F1D255890110058BE03 /* MediumTableCell.swift */; };
 		89357F232558AE090058BE03 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89357F222558AE090058BE03 /* SectionHeader.swift */; };
 		89357F282558B5200058BE03 /* SmallTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89357F272558B5200058BE03 /* SmallTableCell.swift */; };
+		896BEADE255AD8FC00D265C5 /* AlunoMeusCursosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896BEADD255AD8FC00D265C5 /* AlunoMeusCursosViewController.swift */; };
+		896BEAE6255ADEF200D265C5 /* AlunoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896BEAE5255ADEF200D265C5 /* AlunoTableViewCell.swift */; };
 		89BFF0D225542D5D00AE627F /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFF0CF25542D5C00AE627F /* CustomTableViewCell.swift */; };
 		89BFF0D425542D5D00AE627F /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFF0D125542D5D00AE627F /* StarRating.swift */; };
 		89BFF0DB25542D9E00AE627F /* Professor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89BFF0DA25542D9E00AE627F /* Professor.storyboard */; };
@@ -83,6 +85,8 @@
 		89357F1D255890110058BE03 /* MediumTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumTableCell.swift; sourceTree = "<group>"; };
 		89357F222558AE090058BE03 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		89357F272558B5200058BE03 /* SmallTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTableCell.swift; sourceTree = "<group>"; };
+		896BEADD255AD8FC00D265C5 /* AlunoMeusCursosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlunoMeusCursosViewController.swift; sourceTree = "<group>"; };
+		896BEAE5255ADEF200D265C5 /* AlunoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlunoTableViewCell.swift; sourceTree = "<group>"; };
 		89BFF0CF25542D5C00AE627F /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		89BFF0D125542D5D00AE627F /* StarRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
 		89BFF0DA25542D9E00AE627F /* Professor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Professor.storyboard; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 			children = (
 				89BFF0CF25542D5C00AE627F /* CustomTableViewCell.swift */,
 				89BFF0D125542D5D00AE627F /* StarRating.swift */,
+				896BEAE5255ADEF200D265C5 /* AlunoTableViewCell.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 				89BFF12225543C9500AE627F /* Aluno.storyboard */,
 				89BFF1272554467C00AE627F /* AlunoHomeViewController.swift */,
 				89357F05255884A50058BE03 /* Mock Bundle.swift */,
+				896BEADD255AD8FC00D265C5 /* AlunoMeusCursosViewController.swift */,
 			);
 			path = Aluno;
 			sourceTree = "<group>";
@@ -416,9 +422,11 @@
 				89357F282558B5200058BE03 /* SmallTableCell.swift in Sources */,
 				89BFF0F125542DF500AE627F /* Aula+CoreDataClass.swift in Sources */,
 				02E93C742541D99500E47726 /* Larn.xcdatamodeld in Sources */,
+				896BEADE255AD8FC00D265C5 /* AlunoMeusCursosViewController.swift in Sources */,
 				02E93C6C2541D99500E47726 /* SceneDelegate.swift in Sources */,
 				89BFF0F025542DF500AE627F /* Aula+CoreDataProperties.swift in Sources */,
 				89357F1425588A4D0058BE03 /* FeaturedCell.swift in Sources */,
+				896BEAE6255ADEF200D265C5 /* AlunoTableViewCell.swift in Sources */,
 				89BFF0E025542DAB00AE627F /* ProfessorHomeViewController.swift in Sources */,
 				89BFF0F625542E2800AE627F /* ReloadDelegate.swift in Sources */,
 			);
@@ -597,7 +605,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UF373B4HU9;
+				DEVELOPMENT_TEAM = 345TT87MMY;
 				INFOPLIST_FILE = Larn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -616,7 +624,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UF373B4HU9;
+				DEVELOPMENT_TEAM = 345TT87MMY;
 				INFOPLIST_FILE = Larn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
