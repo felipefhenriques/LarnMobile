@@ -39,6 +39,14 @@
                                     <segue destination="5UM-GT-TRU" kind="show" id="18g-6D-R29"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6R9-ea-JGb">
+                                <rect key="frame" x="186" y="341" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Aluno"/>
+                                <connections>
+                                    <segue destination="QWu-TT-yPv" kind="show" id="JFS-NT-QOA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -53,9 +61,19 @@
             <point key="canvasLocation" x="139" y="94"/>
         </scene>
         <!--Aluno-->
+        <scene sceneID="eN6-Dr-hVd">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Aluno" id="QWu-TT-yPv" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Fu0-0k-6B1"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ece-OI-NWl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="631" y="9"/>
+        </scene>
+        <!--Professor-->
         <scene sceneID="G0H-aa-7m6">
             <objects>
-                <viewControllerPlaceholder storyboardName="Aluno" id="BbY-LE-dXy" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Professor" id="BbY-LE-dXy" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="1Ct-LO-lUT"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSb-5q-5Bp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

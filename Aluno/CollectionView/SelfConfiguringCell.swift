@@ -9,5 +9,5 @@ import Foundation
 
 protocol SelfConfiguringCell {
     static var reuseIdentifier: String { get }
-    func configure(with aula: App)
+    func configure(with aula: Aula)
 }

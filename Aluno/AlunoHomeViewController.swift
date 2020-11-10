@@ -6,39 +6,38 @@
 //
 
 import UIKit
+import CoreData
 
-struct Section: Decodable, Hashable {
-    let id: Int
+struct Section: Hashable {
+    let id: UUID
     let type: String
     let title: String
     let subtitle: String
-    let items: [App]
+    let items: [Aula]
 }
 
-struct App: Decodable, Hashable {
-    let id: Int
-    let tagline: String
-    let name: String
-    let subheading: String
-    let image: String
-    let iap: Bool
-}
+//struct Aula: Decodable, Hashable {
+//    let id: Int
+//    let tagline: String
+//    let name: String
+//    let subheading: String
+//    let image: String
+//    let iap: Bool
+//}
 
 class AlunoHomeViewController: UIViewController {
     
     let contex = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var collectionView: UICollectionView!
-    var dataSource: UICollectionViewDiffableDataSource<Section, App>?
+    var dataSource: UICollectionViewDiffableDataSource<Section, Aula>?
     
-    // Gerar a seçao com as aulas
-    //    var sections: [Section] = []
-    let sections = Bundle.main.decode([Section].self, from: "mockAulas.json")
-    //    var section: [Aula] { get {  do {
-    //        return try self.contex.fetch(Aula.fetchRequest())
-    //    } catch {
-    //        return []
-    //    }}}
+    var sections: [Section] = []
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        sections = generateSections()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +56,7 @@ class AlunoHomeViewController: UIViewController {
         realoadData()
     }
     
-    func configure<T: SelfConfiguringCell> (_ cellType: T.Type, with aula: App, for indexPath: IndexPath) -> T {
+    func configure<T: SelfConfiguringCell> (_ cellType: T.Type, with aula: Aula, for indexPath: IndexPath) -> T {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuseIdentifier, for: indexPath) as? T else {
             fatalError("Unable to deque\(cellType)")
@@ -67,14 +66,14 @@ class AlunoHomeViewController: UIViewController {
     }
     
     func createDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Section, App>(collectionView: collectionView) { collectionView, IndexPath, app in
+        dataSource = UICollectionViewDiffableDataSource<Section, Aula>(collectionView: collectionView) { collectionView, IndexPath, aula in
             switch self.sections[IndexPath.section].type {
             case "mediumTable":
-                return self.configure(MediumTableCell.self, with: app, for: IndexPath)
+                return self.configure(MediumTableCell.self, with: aula, for: IndexPath)
             case "smallTable":
-                return self.configure(SmallTableCell.self, with: app, for: IndexPath)
+                return self.configure(SmallTableCell.self, with: aula, for: IndexPath)
             default:
-                return self.configure(FeaturedCell.self, with: app, for: IndexPath)
+                return self.configure(FeaturedCell.self, with: aula, for: IndexPath)
             }
         }
         
@@ -102,7 +101,7 @@ class AlunoHomeViewController: UIViewController {
     }
     
     func realoadData(){
-        var snapshot = NSDiffableDataSourceSnapshot<Section, App>()
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Aula>()
         snapshot.appendSections(sections)
         
         for section in sections {
@@ -135,7 +134,7 @@ class AlunoHomeViewController: UIViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
         
         let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-        layoutItem.contentInsets = .init(top: 0, leading: 5, bottom: 0, trailing: 5)
+        layoutItem.contentInsets = .init(top: 0, leading: 16, bottom: 0, trailing: 0)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93), heightDimension: .estimated(350))
         
@@ -148,10 +147,10 @@ class AlunoHomeViewController: UIViewController {
     }
     
     func createMediumSection(using section: Section) -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.33))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.90), heightDimension: .fractionalHeight(0.33))
         
         let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-        layoutItem.contentInsets = .init(top: 0, leading: 5, bottom: 0, trailing: 5)
+        layoutItem.contentInsets = .init(top: 0, leading: 20, bottom: 5, trailing: -30)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93), heightDimension: .fractionalWidth(0.55))
         
@@ -171,7 +170,7 @@ class AlunoHomeViewController: UIViewController {
         let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
         layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0)
         
-        let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93), heightDimension: .estimated(200))
+        let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.90), heightDimension: .estimated(200))
         let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: layoutGroupSize, subitems: [layoutItem])
         
         let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
@@ -190,7 +189,35 @@ class AlunoHomeViewController: UIViewController {
     //Implementar para gerar as secoes
     func generateSections() -> [Section] {
         
-        return[]
+        let aulas = fetchData()
+        
+        var sec: [Section] = []
+        
+        var featured: [Aula] = []
+        var medium: [Aula] = []
+        
+        for index in 0..<aulas.count {
+            
+            if index < 3 {
+                featured.append(aulas[index])
+            }
+            
+            if index >= 3 {
+                medium.append(aulas[index])
+            }
+        }
+         
+        sec.append(Section(id: UUID(), type: "feature", title: "Destaques da semana", subtitle: "escolhido para voce", items: featured))
+        sec.append(Section(id: UUID(), type: "mediumTable", title: "Todas as aulas", subtitle: "Aulas", items: medium))
+        return sec
+    }
+    
+    func fetchData() -> [Aula]{
+        do {
+            return try contex.fetch(Aula.fetchRequest())
+        } catch {
+            fatalError("Home nao puxa aula")
+        }
     }
 }
 

@@ -26,9 +26,9 @@ class FeaturedCell: UICollectionViewCell, SelfConfiguringCell {
         subtitle.font =  UIFont.preferredFont(forTextStyle: .title2)
         subtitle.textColor = .secondaryLabel
         
-        imageView.layer.cornerRadius = 5
+        imageView.layer.cornerRadius = 15
         imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         
         let stackView = UIStackView(arrangedSubviews: [tagline, name, subtitle, imageView])
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -50,10 +50,14 @@ class FeaturedCell: UICollectionViewCell, SelfConfiguringCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with aula: App) {
-        tagline.text = aula.tagline.uppercased()
-        name.text = aula.name
-        subtitle.text = aula.subheading
-        imageView.image = UIImage(named: aula.image)
+    func configure(with aula: Aula) {
+        tagline.text = aula.tema
+        name.text = aula.tema
+        subtitle.text = aula.tema
+        
+        if let image = aula.dataToImage() {
+            imageView.image = image
+        }
+        
     }
 }

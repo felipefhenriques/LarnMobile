@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-
+import UIKit
 
 extension Aula {
 
@@ -27,5 +27,11 @@ extension Aula {
 }
 
 extension Aula : Identifiable {
-
+    
+    func dataToImage() -> UIImage? {
+        guard let data = image else {
+            return nil
+        }
+        return UIImage(data: data)
+    }
 }

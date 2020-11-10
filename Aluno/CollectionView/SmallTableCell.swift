@@ -36,9 +36,13 @@ class SmallTableCell: UICollectionViewCell, SelfConfiguringCell {
     }
     
 
-    func configure(with aula: App) {
-        name.text = aula.name
-        imageView.image = UIImage(named: aula.image)
+    func configure(with aula: Aula) {
+        name.text = aula.tema
+        
+        if let image = aula.dataToImage() {
+            imageView.image = image
+        }
+        
     }
     
     required init?(coder: NSCoder) {

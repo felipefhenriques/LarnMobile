@@ -44,14 +44,19 @@ class MediumTableCell: UICollectionViewCell, SelfConfiguringCell {
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             stackView.topAnchor.constraint(equalTo: self.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: 70)
         ])
     }
     
-    func configure(with aula: App) {
-        name.text = aula.name
-        subtitle.text = aula.subheading
-        imageView.image = UIImage(named: aula.image)
+    func configure(with aula: Aula) {
+        name.text = aula.tema
+        subtitle.text = "R$ \(String(describing: aula.valor!))"
+        
+        if let image = aula.dataToImage() {
+            imageView.image = image
+        }
+        
     }
     
     required init?(coder: NSCoder) {
