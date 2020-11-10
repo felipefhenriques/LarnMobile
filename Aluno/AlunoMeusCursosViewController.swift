@@ -1,15 +1,14 @@
 //
-//  ProfessorHomeViewController.swift
+//  AlunoMeusCursosViewController.swift
 //  Larn
 //
-//  Created by Rogerio Lucon on 29/10/20.
+//  Created by Rogerio Lucon on 10/11/20.
 //
-import UIKit
-import Foundation
 
-class ProfessorHomeViewController: UIViewController {
-    
-    let cellIdentifier = "CellIdentifier"
+import UIKit
+
+class AlunoMeusCursosViewController: UIViewController {
+    let cellIdentifier = "AlunoCursosCell"
     let contex = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var aulas: [Aula] = []
     
@@ -21,7 +20,7 @@ class ProfessorHomeViewController: UIViewController {
         tableView.delegate = self
     }
     
-    //Implementar - Buscar Aulas do Professor apenas
+    //Implementar - Buscar aulas do Aluno
     func fetchData(){
         do {
             aulas = try contex.fetch(Aula.fetchRequest())
@@ -33,16 +32,9 @@ class ProfessorHomeViewController: UIViewController {
 
         }
     }
-    
-    @IBAction func addClass(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Professor", bundle: Bundle.main)
-        let registerView: RegisterClassViewController = storyboard.instantiateViewController(withIdentifier: "RegisterClass") as! RegisterClassViewController
-        registerView.reloadDelegate = self
-        self.navigationController?.pushViewController(registerView, animated: true)
-    }
 }
 
-extension ProfessorHomeViewController: UITableViewDataSource, UITableViewDelegate {
+extension AlunoMeusCursosViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -54,12 +46,10 @@ extension ProfessorHomeViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CustomTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! AlunoTableViewCell
              
-        // Fetch Fruit
         let aula = aulas[indexPath.row]
         cell.aula = aula
-        // Configure Cell
         
         return cell
     }
@@ -68,23 +58,15 @@ extension ProfessorHomeViewController: UITableViewDataSource, UITableViewDelegat
         let action = UIContextualAction(style: .normal, title: "Edit") { action, view, complitionHandler in
             
         }
-        
         return UISwipeActionsConfiguration(actions: [action])
     }
     
+    // Vai para a pagina do curso - Implementar
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Professor", bundle: Bundle.main)
         let registerView: RegisterClassViewController = storyboard.instantiateViewController(withIdentifier: "RegisterClass") as! RegisterClassViewController
         registerView.aula = aulas[indexPath.row]
-        registerView.reloadDelegate = self
         self.navigationController?.pushViewController(registerView, animated: true)
     }
 }
 
-extension ProfessorHomeViewController: ReloadDelegate {
-    
-    func reload() {
-        fetchData()
-    }
-
-}
