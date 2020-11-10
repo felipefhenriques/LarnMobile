@@ -206,27 +206,6 @@
 			path = Cadastro;
 			sourceTree = "<group>";
 		};
-<<<<<<< Updated upstream
-		89357F12255889FE0058BE03 /* CollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				89357F1325588A4D0058BE03 /* FeaturedCell.swift */,
-				89357F1825588AD90058BE03 /* SelfConfiguringCell.swift */,
-				89357F1D255890110058BE03 /* MediumTableCell.swift */,
-				89357F222558AE090058BE03 /* SectionHeader.swift */,
-				89357F272558B5200058BE03 /* SmallTableCell.swift */,
-			);
-			path = CollectionView;
-=======
-		02F20D10255B26D00057EF34 /* Busca */ = {
-			isa = PBXGroup;
-			children = (
-				02F20D11255B26F70057EF34 /* Busca.storyboard */,
-			);
-			path = Busca;
->>>>>>> Stashed changes
-			sourceTree = "<group>";
-		};
 		89BFF0CE25542D2B00AE627F /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
