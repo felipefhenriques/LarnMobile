@@ -143,6 +143,9 @@ class AlunoHomeViewController: UIViewController {
         let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
         layoutSection.orthogonalScrollingBehavior = .groupPaging
         
+        let layoutSectionHeader = createSectionHeader()
+        layoutSection.boundarySupplementaryItems = [layoutSectionHeader]
+        
         return layoutSection
     }
     
@@ -202,7 +205,7 @@ class AlunoHomeViewController: UIViewController {
                 featured.append(aulas[index])
             }
             
-            if index >= 3 {
+            if index >= 3  {
                 medium.append(aulas[index])
             }
         }
