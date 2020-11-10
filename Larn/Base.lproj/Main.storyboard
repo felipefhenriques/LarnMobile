@@ -52,10 +52,10 @@
             </objects>
             <point key="canvasLocation" x="139" y="94"/>
         </scene>
-        <!--Cadastro-->
+        <!--Aluno-->
         <scene sceneID="G0H-aa-7m6">
             <objects>
-                <viewControllerPlaceholder storyboardName="Cadastro" id="BbY-LE-dXy" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Aluno" id="BbY-LE-dXy" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="1Ct-LO-lUT"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSb-5q-5Bp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
