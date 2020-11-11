@@ -12,6 +12,7 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
     let contex = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var materiaPicker: UIPickerView!
     @IBOutlet weak var tema: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var learn: UITextView!
@@ -24,8 +25,11 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
     var aula: Aula?
     
     override func viewDidLoad() {
+        materiaPicker.delegate = self
+        materiaPicker.dataSource = self
         if #available(iOS 13.4, *) {
                 datePicker.preferredDatePickerStyle = .compact
+               
         }
         configElements()
         
@@ -74,6 +78,7 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
             aulaAltera.id = UUID()
         }
         aulaAltera.tema = tema.text
+        
         aulaAltera.requisitos = req.text
         aulaAltera.conteudo = learn.text
         aulaAltera.descricao = des.text
@@ -123,7 +128,7 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
             learn.text = aula.conteudo
             des.text = self.aula?.descricao
             datePicker.date = self.aula?.data ?? Date()
-            
+
             if let valor = aula.valor {
                 price.text = valor.stringValue
             }
@@ -147,6 +152,7 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
         des.isUserInteractionEnabled = editing
         req.isUserInteractionEnabled = editing
         price.isEnabled = editing
+        materiaPicker.isUserInteractionEnabled = editing
     }
 }
 
@@ -158,4 +164,30 @@ extension  RegisterClassViewController: ReloadDelegate {
             self.navigationController?.popViewController(animated: true)
         }
     }
+}
+
+extension  RegisterClassViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    var categorys: [Materia] {get { fetchData() }}
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+        
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categorys.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categorys[row].materia
+    }
+    
+    func fetchData() -> [Materia]{
+        do {
+            return try contex.fetch(Materia.fetchRequest())
+        } catch {
+            fatalError("Problema para puxar as materias")
+        }
+    }
+    
 }
