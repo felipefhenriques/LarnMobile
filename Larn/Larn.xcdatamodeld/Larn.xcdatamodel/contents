@@ -18,6 +18,7 @@
         <attribute name="requisitos" optional="YES" attributeType="String"/>
         <attribute name="tema" attributeType="String"/>
         <attribute name="valor" attributeType="Decimal" defaultValueString="0.0"/>
+        <relationship name="materia" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Materia"/>
     </entity>
     <entity name="Materia" representedClassName="Materia" syncable="YES">
         <attribute name="materia" optional="YES" attributeType="String"/>
@@ -34,8 +35,8 @@
     </entity>
     <elements>
         <element name="Aluno" positionX="-63" positionY="-18" width="128" height="148"/>
-        <element name="Aula" positionX="-54" positionY="81" width="128" height="149"/>
-        <element name="Professor" positionX="-63" positionY="27" width="128" height="163"/>
+        <element name="Aula" positionX="-54" positionY="81" width="128" height="164"/>
         <element name="Materia" positionX="-54" positionY="90" width="128" height="44"/>
+        <element name="Professor" positionX="-63" positionY="27" width="128" height="163"/>
     </elements>
 </model>

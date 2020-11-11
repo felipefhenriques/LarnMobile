@@ -78,7 +78,7 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
             aulaAltera.id = UUID()
         }
         aulaAltera.tema = tema.text
-        
+        aulaAltera.materia = categorys[materiaPicker.selectedRow(inComponent: 0)]
         aulaAltera.requisitos = req.text
         aulaAltera.conteudo = learn.text
         aulaAltera.descricao = des.text
@@ -128,7 +128,8 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
             learn.text = aula.conteudo
             des.text = self.aula?.descricao
             datePicker.date = self.aula?.data ?? Date()
-
+            let index = categorys.firstIndex {$0.materia == aula.materia?.materia}
+            materiaPicker.selectRow(index ?? 0, inComponent: 0, animated: false)
             if let valor = aula.valor {
                 price.text = valor.stringValue
             }
@@ -165,6 +166,8 @@ extension  RegisterClassViewController: ReloadDelegate {
         }
     }
 }
+
+ 
 
 extension  RegisterClassViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
