@@ -353,6 +353,7 @@
                         <outlet property="learn" destination="bRp-aQ-GGd" id="7Hi-Jf-ZQ5"/>
                         <outlet property="materiaPicker" destination="15a-mB-v6W" id="WKX-3T-uXu"/>
                         <outlet property="price" destination="0xU-9f-jys" id="Jor-Bq-5Un"/>
+                        <outlet property="publishBtt" destination="aDp-GI-9BO" id="aSg-8R-jBn"/>
                         <outlet property="req" destination="8eD-T0-xAb" id="bFN-5w-CEg"/>
                         <outlet property="tema" destination="BHz-fV-iGA" id="rUl-Qo-aOj"/>
                     </connections>

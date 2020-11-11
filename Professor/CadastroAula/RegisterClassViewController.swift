@@ -19,6 +19,7 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var des: UITextView!
     @IBOutlet weak var req: UITextView!
     @IBOutlet weak var price: UITextField!
+    @IBOutlet weak var publishBtt: UIButton!
     
     var reloadDelegate: ReloadDelegate!
     
@@ -140,12 +141,30 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
         }
         
         self.navigationItem.rightBarButtonItem  = self.editButtonItem
-        
-        setEditing(false, animated: false)
+        publishBtt.isHidden = true
+        setEditing(false)
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing,animated:animated)
+        setEditing(editing)
+        if !editing {
+            let refreshAlert = UIAlertController(title: "Edição", message: "Deseja salvar as alteraçoes", preferredStyle: UIAlertController.Style.alert)
+
+            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                self.publish(self)
+              }))
+
+            refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                self.loadAula()
+              }))
+
+            present(refreshAlert, animated: true, completion: nil)
+            
+        }
+    }
+    
+    func setEditing(_ editing: Bool){
         image.isUserInteractionEnabled = editing
         tema.isEnabled = editing
         datePicker.isEnabled = editing
@@ -161,7 +180,13 @@ extension  RegisterClassViewController: ReloadDelegate {
     
     func reload() {
         reloadDelegate.reload()
-        alert(title: "Sucesso", message: "Aula adicionada com sucesso") {_ in
+        var msm: String?
+        if !isEditing {
+            msm = "Aula atualizada com sucesso"
+        } else {
+            msm = "Aula adicionada com sucesso"
+        }
+        alert(title: "Sucesso", message: msm ?? "!!!") {_ in
             self.navigationController?.popViewController(animated: true)
         }
     }
