@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NxL-5q-MQm">
-                                <rect key="frame" x="0.0" y="190" width="414" height="623"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellIdentifier" id="Oaf-lo-xd3" customClass="CustomTableViewCell" customModule="Larn" customModuleProvider="target">
@@ -114,25 +114,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Professor Storyboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wKK-pN-YqV">
-                                <rect key="frame" x="32" y="108" width="350" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="bjC-gx-gow"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dg2-Cu-lY8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="wKK-pN-YqV" firstAttribute="top" secondItem="dg2-Cu-lY8" secondAttribute="top" constant="20" id="2ag-0N-SGL"/>
-                            <constraint firstItem="wKK-pN-YqV" firstAttribute="leading" secondItem="dg2-Cu-lY8" secondAttribute="leading" constant="32" id="EHl-Aa-NJY"/>
                             <constraint firstItem="dg2-Cu-lY8" firstAttribute="bottom" secondItem="NxL-5q-MQm" secondAttribute="bottom" id="Oj9-YU-qgW"/>
+                            <constraint firstItem="NxL-5q-MQm" firstAttribute="top" secondItem="dg2-Cu-lY8" secondAttribute="top" id="WJS-xG-Gs8"/>
                             <constraint firstItem="NxL-5q-MQm" firstAttribute="leading" secondItem="dg2-Cu-lY8" secondAttribute="leading" id="btB-pc-ess"/>
-                            <constraint firstItem="NxL-5q-MQm" firstAttribute="top" secondItem="wKK-pN-YqV" secondAttribute="bottom" constant="32" id="h2h-ye-Y5R"/>
-                            <constraint firstItem="dg2-Cu-lY8" firstAttribute="trailing" secondItem="wKK-pN-YqV" secondAttribute="trailing" constant="32" id="oWc-p5-LkE"/>
                             <constraint firstItem="dg2-Cu-lY8" firstAttribute="trailing" secondItem="NxL-5q-MQm" secondAttribute="trailing" id="uSF-6q-IPf"/>
                         </constraints>
                     </view>
