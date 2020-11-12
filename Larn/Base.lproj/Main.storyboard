@@ -47,6 +47,14 @@
                                     <segue destination="QWu-TT-yPv" kind="show" id="JFS-NT-QOA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGY-SD-J5w">
+                                <rect key="frame" x="185" y="574" width="42" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Busca"/>
+                                <connections>
+                                    <segue destination="R74-sV-kX9" kind="show" id="gEc-nU-O0F"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -89,6 +97,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PEZ-rw-C6g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="593" y="265"/>
+        </scene>
+        <!--Busca-->
+        <scene sceneID="eh5-9Q-Fhe">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Busca" id="R74-sV-kX9" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="kaI-AG-g2m"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oWH-ev-dIt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="704" y="337"/>
         </scene>
     </scenes>
     <resources>
