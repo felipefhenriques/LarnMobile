@@ -8,19 +8,22 @@
 import Foundation
 import CoreData
 
-extension UserDefaults {
+class Sessao {
     
-    private static let sessaoKey = "sessao"
+    static let shared = Sessao()
+    private var user: NSManagedObject?
+    
+    private init(){}
     
     func saveUsuario(user: NSManagedObject) {
-        set(user, forKey: UserDefaults.sessaoKey)
-//        print("Salvando usuario \(user)")
+        self.user = user
     }
-    
+
     func loadUsuario() -> NSManagedObject {
-        guard let user: NSManagedObject = object(forKey: UserDefaults.sessaoKey) as? NSManagedObject else {
-            fatalError("LoadUsuario falhou!")
+        guard let user = self.user else {
+            fatalError("Não há sessao vinculada")
         }
         return user
     }
+    
 }

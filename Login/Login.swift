@@ -40,7 +40,7 @@ class Login: UIViewController, UITextFieldDelegate {
                 if txtEmail.text == (user[i].value(forKey: "email") as! String) || txtEmail.text == (user[i].value(forKey: "apelido") as! String) {
                     if(txtSenha.text == (user[i].value(forKey: "senha") as! String)) {
                         lblPreencha.isHidden = true
-                        UserDefaults.standard.saveUsuario(user: user[i])
+                        Sessao.shared.saveUsuario(user: user[i])
                         let identifier = segmentedOption.selectedSegmentIndex == 0 ? "Aluno" : "Professor"
                         performSegue(withIdentifier: identifier, sender: self)
                     } else {
