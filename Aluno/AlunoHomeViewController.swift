@@ -192,32 +192,44 @@ class AlunoHomeViewController: UIViewController {
     //Implementar para gerar as secoes
     func generateSections() -> [Section] {
         
-        let aulas = fetchData()
+        var aulas:[Aula] = fetchData(entity: Aula.self) as! [Aula]
+        var materias:[Materia] = fetchData(entity: Materia.self) as! [Materia]
         
         var sec: [Section] = []
         
         var featured: [Aula] = []
-        var medium: [Aula] = []
         
         for index in 0..<aulas.count {
             
             if index < 3 {
                 featured.append(aulas[index])
+                aulas.remove(at: index)
             }
             
-            if index >= 3  {
-                medium.append(aulas[index])
-            }
         }
+
+        let dev = aulas.filter { $0.materia?.materia == "Desenvolvimento"}
+        let bus = aulas.filter { $0.materia?.materia == "Negocios"}
+        let des = aulas.filter { $0.materia?.materia == "Design"}
+        let fin = aulas.filter { $0.materia?.materia == "Finanças"}
+        let mkt = aulas.filter { $0.materia?.materia == "Marketing"}
+        let art = aulas.filter { $0.materia?.materia == "Artes"}
+        
          
         sec.append(Section(id: UUID(), type: "feature", title: "Destaques da semana", subtitle: "escolhido para voce", items: featured))
-        sec.append(Section(id: UUID(), type: "mediumTable", title: "Todas as aulas", subtitle: "Aulas", items: medium))
+        sec.append(Section(id: UUID(), type: "mediumTable", title: dev[0].materia?.materia ?? "Erro", subtitle: "Populares", items: dev))
+        sec.append(Section(id: UUID(), type: "mediumTable", title: bus[0].materia?.materia ?? "Erro", subtitle: "Populares", items: bus))
+        sec.append(Section(id: UUID(), type: "mediumTable", title: des[0].materia?.materia ?? "Erro", subtitle: "Populares", items: des))
+        sec.append(Section(id: UUID(), type: "mediumTable", title: fin[0].materia?.materia ?? "Erro", subtitle: "Populares", items: fin))
+        sec.append(Section(id: UUID(), type: "mediumTable", title: mkt[0].materia?.materia ?? "Erro", subtitle: "Populares", items: mkt))
+        sec.append(Section(id: UUID(), type: "mediumTable", title: art[0].materia?.materia ?? "Erro", subtitle: "Populares", items: art))
+        
         return sec
     }
     
-    func fetchData() -> [Aula]{
+    func fetchData<T:NSManagedObject>(entity: T.Type) -> [Any] {
         do {
-            return try contex.fetch(Aula.fetchRequest())
+            return try contex.fetch(T.fetchRequest())
         } catch {
             fatalError("Home nao puxa aula")
         }
