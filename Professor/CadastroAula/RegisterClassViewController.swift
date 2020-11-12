@@ -12,20 +12,25 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
     let contex = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var materiaPicker: UIPickerView!
     @IBOutlet weak var tema: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var learn: UITextView!
     @IBOutlet weak var des: UITextView!
     @IBOutlet weak var req: UITextView!
     @IBOutlet weak var price: UITextField!
+    @IBOutlet weak var publishBtt: UIButton!
     
     var reloadDelegate: ReloadDelegate!
     
     var aula: Aula?
     
     override func viewDidLoad() {
+        materiaPicker.delegate = self
+        materiaPicker.dataSource = self
         if #available(iOS 13.4, *) {
                 datePicker.preferredDatePickerStyle = .compact
+               
         }
         configElements()
         
@@ -74,6 +79,7 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
             aulaAltera.id = UUID()
         }
         aulaAltera.tema = tema.text
+        aulaAltera.materia = categorys[materiaPicker.selectedRow(inComponent: 0)]
         aulaAltera.requisitos = req.text
         aulaAltera.conteudo = learn.text
         aulaAltera.descricao = des.text
@@ -123,7 +129,8 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
             learn.text = aula.conteudo
             des.text = self.aula?.descricao
             datePicker.date = self.aula?.data ?? Date()
-            
+            let index = categorys.firstIndex {$0.materia == aula.materia?.materia}
+            materiaPicker.selectRow(index ?? 0, inComponent: 0, animated: false)
             if let valor = aula.valor {
                 price.text = valor.stringValue
             }
@@ -134,12 +141,30 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
         }
         
         self.navigationItem.rightBarButtonItem  = self.editButtonItem
-        
-        setEditing(false, animated: false)
+        publishBtt.isHidden = true
+        setEditing(false)
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing,animated:animated)
+        setEditing(editing)
+        if !editing {
+            let refreshAlert = UIAlertController(title: "Edição", message: "Deseja salvar as alteraçoes", preferredStyle: UIAlertController.Style.alert)
+
+            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                self.publish(self)
+              }))
+
+            refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                self.loadAula()
+              }))
+
+            present(refreshAlert, animated: true, completion: nil)
+            
+        }
+    }
+    
+    func setEditing(_ editing: Bool){
         image.isUserInteractionEnabled = editing
         tema.isEnabled = editing
         datePicker.isEnabled = editing
@@ -147,6 +172,7 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
         des.isUserInteractionEnabled = editing
         req.isUserInteractionEnabled = editing
         price.isEnabled = editing
+        materiaPicker.isUserInteractionEnabled = editing
     }
 }
 
@@ -154,8 +180,42 @@ extension  RegisterClassViewController: ReloadDelegate {
     
     func reload() {
         reloadDelegate.reload()
-        alert(title: "Sucesso", message: "Aula adicionada com sucesso") {_ in
+        var msm: String?
+        if !isEditing {
+            msm = "Aula atualizada com sucesso"
+        } else {
+            msm = "Aula adicionada com sucesso"
+        }
+        alert(title: "Sucesso", message: msm ?? "!!!") {_ in
             self.navigationController?.popViewController(animated: true)
         }
     }
+}
+
+ 
+
+extension  RegisterClassViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    var categorys: [Materia] {get { fetchData() }}
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+        
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categorys.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categorys[row].materia
+    }
+    
+    func fetchData() -> [Materia]{
+        do {
+            return try contex.fetch(Materia.fetchRequest())
+        } catch {
+            fatalError("Problema para puxar as materias")
+        }
+    }
+    
 }
