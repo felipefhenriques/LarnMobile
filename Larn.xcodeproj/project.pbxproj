@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02B5AC69255B6018006F1386 /* Busca.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02B5AC68255B6018006F1386 /* Busca.storyboard */; };
+		02B5AC6E255B61FC006F1386 /* Busca.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B5AC6D255B61FC006F1386 /* Busca.swift */; };
 		02E93C6A2541D99500E47726 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E93C692541D99500E47726 /* AppDelegate.swift */; };
 		02E93C6C2541D99500E47726 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E93C6B2541D99500E47726 /* SceneDelegate.swift */; };
 		02E93C6E2541D99500E47726 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E93C6D2541D99500E47726 /* ViewController.swift */; };
@@ -59,6 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02B5AC68255B6018006F1386 /* Busca.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Busca.storyboard; sourceTree = "<group>"; };
+		02B5AC6D255B61FC006F1386 /* Busca.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Busca.swift; sourceTree = "<group>"; };
 		02E93C662541D99500E47726 /* Larn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Larn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02E93C692541D99500E47726 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02E93C6B2541D99500E47726 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,11 +128,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02B5AC67255B5FFF006F1386 /* Busca */ = {
+			isa = PBXGroup;
+			children = (
+				02B5AC68255B6018006F1386 /* Busca.storyboard */,
+				02B5AC6D255B61FC006F1386 /* Busca.swift */,
+			);
+			path = Busca;
+			sourceTree = "<group>";
+		};
 		02E93C5D2541D99500E47726 = {
 			isa = PBXGroup;
 			children = (
 				89BFF12125543AFE00AE627F /* Aluno */,
 				89BFF0F525542E2800AE627F /* ReloadDelegate.swift */,
+				02B5AC67255B5FFF006F1386 /* Busca */,
 				89BFF0ED25542DE400AE627F /* Model */,
 				89BFF0D825542D6900AE627F /* Professor */,
 				89BFF0CE25542D2B00AE627F /* CustomViews */,
@@ -380,6 +394,7 @@
 				89BFF0DB25542D9E00AE627F /* Professor.storyboard in Resources */,
 				02E93C712541D99500E47726 /* Main.storyboard in Resources */,
 				89BFF12325543C9500AE627F /* Aluno.storyboard in Resources */,
+				02B5AC69255B6018006F1386 /* Busca.storyboard in Resources */,
 				02EDE33B2552C4AD0010C721 /* Login.storyboard in Resources */,
 				89357F0B255885360058BE03 /* mockAulas.json in Resources */,
 				02FC7E9F2548E4B700040D77 /* Cadastro.storyboard in Resources */,
@@ -411,6 +426,7 @@
 				02E93C6E2541D99500E47726 /* ViewController.swift in Sources */,
 				02FC7E972548E4A600040D77 /* Cadastro.swift in Sources */,
 				89BFF0D425542D5D00AE627F /* StarRating.swift in Sources */,
+				02B5AC6E255B61FC006F1386 /* Busca.swift in Sources */,
 				89BFF1282554467C00AE627F /* AlunoHomeViewController.swift in Sources */,
 				02E93C6A2541D99500E47726 /* AppDelegate.swift in Sources */,
 				89BFF0D225542D5D00AE627F /* CustomTableViewCell.swift in Sources */,
