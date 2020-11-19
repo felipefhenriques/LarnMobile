@@ -11,6 +11,7 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
     
     let contex = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var materiaPicker: UIPickerView!
     @IBOutlet weak var tema: UITextField!
@@ -45,6 +46,8 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
         let tap = UITapGestureRecognizer(target: self, action: #selector (changeImage))
         image.isUserInteractionEnabled = true
         image.addGestureRecognizer(tap)
+        
+        scrollView.keyboardDismissMode = .interactive
         
         self.title = "Aula"
     }
@@ -86,6 +89,10 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
         aulaAltera.data = datePicker.date
         aulaAltera.valor = NSDecimalNumber(string: price.text)
         aulaAltera.image = image.image?.pngData()
+        guard let prof = Sessao.shared.loadUsuario() as? Professor else {
+            fatalError("Erro ao vincular professro na aula")
+        }
+        aulaAltera.prof = prof
         do {
             try contex.save()
             reload()
@@ -219,3 +226,4 @@ extension  RegisterClassViewController: UIPickerViewDataSource, UIPickerViewDele
     }
     
 }
+

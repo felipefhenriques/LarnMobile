@@ -25,7 +25,7 @@ class ProfessorHomeViewController: UIViewController {
     func fetchData(){
         do {
             aulas = try contex.fetch(Aula.fetchRequest())
-            
+            aulas = aulas.filter { $0.prof == Sessao.shared.loadUsuario() }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }

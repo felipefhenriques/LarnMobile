@@ -25,6 +25,7 @@ extension Aula {
     @NSManaged public var tema: String?
     @NSManaged public var valor: NSDecimalNumber?
     @NSManaged public var materia: Materia?
+    @NSManaged public var prof: Professor?
 
 }
 

@@ -35,6 +35,7 @@
 		896BEB07255AF58400D265C5 /* Materia+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896BEB05255AF58400D265C5 /* Materia+CoreDataProperties.swift */; };
 		896BEB13255B6C2800D265C5 /* Aula+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896BEB11255B6C2800D265C5 /* Aula+CoreDataClass.swift */; };
 		896BEB14255B6C2800D265C5 /* Aula+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896BEB12255B6C2800D265C5 /* Aula+CoreDataProperties.swift */; };
+		89876CC0255D6CFD00989FED /* Sessao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89876CBF255D6CFC00989FED /* Sessao.swift */; };
 		89BFF0D225542D5D00AE627F /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFF0CF25542D5C00AE627F /* CustomTableViewCell.swift */; };
 		89BFF0D425542D5D00AE627F /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFF0D125542D5D00AE627F /* StarRating.swift */; };
 		89BFF0DB25542D9E00AE627F /* Professor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89BFF0DA25542D9E00AE627F /* Professor.storyboard */; };
@@ -97,6 +98,7 @@
 		896BEB05255AF58400D265C5 /* Materia+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Materia+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		896BEB11255B6C2800D265C5 /* Aula+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aula+CoreDataClass.swift"; sourceTree = "<group>"; };
 		896BEB12255B6C2800D265C5 /* Aula+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aula+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		89876CBF255D6CFC00989FED /* Sessao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sessao.swift; sourceTree = "<group>"; };
 		89BFF0CF25542D5C00AE627F /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		89BFF0D125542D5D00AE627F /* StarRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
 		89BFF0DA25542D9E00AE627F /* Professor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Professor.storyboard; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			children = (
 				02EDE33A2552C4AD0010C721 /* Login.storyboard */,
 				02EDE3402552C4CC0010C721 /* Login.swift */,
+				89876CBF255D6CFC00989FED /* Sessao.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				89357F1425588A4D0058BE03 /* FeaturedCell.swift in Sources */,
 				896BEAE6255ADEF200D265C5 /* AlunoTableViewCell.swift in Sources */,
 				89BFF0E025542DAB00AE627F /* ProfessorHomeViewController.swift in Sources */,
+				89876CC0255D6CFD00989FED /* Sessao.swift in Sources */,
 				896BEB14255B6C2800D265C5 /* Aula+CoreDataProperties.swift in Sources */,
 				89BFF0F625542E2800AE627F /* ReloadDelegate.swift in Sources */,
 			);
