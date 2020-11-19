@@ -11,6 +11,7 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
     
     let contex = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var materiaPicker: UIPickerView!
     @IBOutlet weak var tema: UITextField!
@@ -45,6 +46,8 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
         let tap = UITapGestureRecognizer(target: self, action: #selector (changeImage))
         image.isUserInteractionEnabled = true
         image.addGestureRecognizer(tap)
+        
+        scrollView.keyboardDismissMode = .interactive
         
         self.title = "Aula"
     }
@@ -223,3 +226,4 @@ extension  RegisterClassViewController: UIPickerViewDataSource, UIPickerViewDele
     }
     
 }
+
