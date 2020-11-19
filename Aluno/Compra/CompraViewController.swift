@@ -34,13 +34,26 @@ class CompraViewController: ViewController {
     }
     
     private func loadAula(){
+        profName.text = aula.prof?.nome
+        category.text = aula.materia?.materia
+        // Data ajustada
+        //Imagem
         learTextView.text = aula.conteudo
         desc.text = aula.descricao
         reqTextView.text = aula.requisitos
+        priceTop.text = String(describing: aula.valor)
+        priceBottom.text = String(describing: aula.valor)
     }
+    
     @IBAction func bttTop(_ sender: Any) {
+        purchase()
     }
     @IBAction func bttBottom(_ sender: Any) {
+        purchase()
+    }
+    
+    private func purchase(){
+        print("Compra realizada")
     }
     
 }
@@ -51,5 +64,7 @@ extension UITextView {
         self.translatesAutoresizingMaskIntoConstraints = true
         self.sizeToFit()
         self.isScrollEnabled = false
+        self.isEditable = false
     }
+    
 }
