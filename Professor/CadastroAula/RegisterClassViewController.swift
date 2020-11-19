@@ -86,6 +86,10 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
         aulaAltera.data = datePicker.date
         aulaAltera.valor = NSDecimalNumber(string: price.text)
         aulaAltera.image = image.image?.pngData()
+        guard let prof = Sessao.shared.loadUsuario() as? Professor else {
+            fatalError("Erro ao vincular professro na aula")
+        }
+        aulaAltera.prof = prof
         do {
             try contex.save()
             reload()

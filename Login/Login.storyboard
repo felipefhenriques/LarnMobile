@@ -18,6 +18,26 @@
             </objects>
             <point key="canvasLocation" x="-603" y="571"/>
         </scene>
+        <!--Professor-->
+        <scene sceneID="Vbu-zO-dQm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Professor" id="HWQ-Lt-O22" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="8fQ-Fe-6Om"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g5F-FT-o4H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="577" y="609"/>
+        </scene>
+        <!--Aluno-->
+        <scene sceneID="2bC-mQ-ath">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Aluno" id="upM-pW-0rU" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="q53-rO-F2M"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7SS-3n-UZ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="212" y="658"/>
+        </scene>
         <!--Login-->
         <scene sceneID="XCm-ry-2a6">
             <objects>
@@ -113,6 +133,8 @@
                         <outlet property="txtEmail" destination="qng-UF-hkv" id="h6y-Lm-fij"/>
                         <outlet property="txtSenha" destination="wV2-oF-RQg" id="kVV-nr-tm5"/>
                         <segue destination="EdP-GM-8qp" kind="show" identifier="bemSucedido" id="5HQ-jL-EuJ"/>
+                        <segue destination="upM-pW-0rU" kind="show" identifier="Aluno" id="fZg-FJ-cl1"/>
+                        <segue destination="HWQ-Lt-O22" kind="show" identifier="Professor" id="aOr-kL-KeN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpA-rM-hTm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
