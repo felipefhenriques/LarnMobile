@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Nome da Aula-->
+        <!--Compra View Controller-->
         <scene sceneID="cda-wO-eNB">
             <objects>
-                <viewController id="Lzy-Da-YRa" customClass="CompraViewController" customModule="Larn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompraAula" id="Lzy-Da-YRa" customClass="CompraViewController" customModule="Larn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bjX-UW-mB1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1250"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -204,7 +204,7 @@
                             <constraint firstAttribute="bottom" secondItem="Xzt-4s-tvj" secondAttribute="bottom" id="xws-cr-foK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Nome da Aula" id="e83-nc-W9F"/>
+                    <navigationItem key="navigationItem" id="e83-nc-W9F"/>
                     <size key="freeformSize" width="414" height="1250"/>
                     <connections>
                         <outlet property="category" destination="H0V-NS-wdH" id="gn2-7x-bhO"/>

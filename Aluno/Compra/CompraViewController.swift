@@ -21,7 +21,7 @@ class CompraViewController: ViewController {
     @IBOutlet weak var priceTop: UILabel!
     @IBOutlet weak var priceBottom: UILabel!
     
-    var aula: Aula! {didSet { loadAula() }}
+    var aula: Aula!
     
     override func viewDidLoad() {
         learTextView.resizeble()
@@ -31,18 +31,41 @@ class CompraViewController: ViewController {
         stackView.setCustomSpacing(0, after: profName)
         
         stackView.layoutIfNeeded()
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadAula()
     }
     
     private func loadAula(){
-        profName.text = aula.prof?.nome
-        category.text = aula.materia?.materia
+        if let prof: String = aula.prof?.nome {
+            profName.text = prof
+        } else {
+            profName.text = "Professor de Teste"
+        }
+        if let materia: String = aula.materia?.materia {
+            category.text = materia
+        }
         // Data ajustada
-        //Imagem
+        imageView.image = aula.dataToImage()
         learTextView.text = aula.conteudo
         desc.text = aula.descricao
         reqTextView.text = aula.requisitos
-        priceTop.text = String(describing: aula.valor)
-        priceBottom.text = String(describing: aula.valor)
+        if let price = aula.valor {
+            let aux = decimalToString(price)
+            priceTop.text = aux
+            priceBottom.text = aux
+        }
+        
+        self.title = aula.tema
+    }
+    
+    private func decimalToString(_ number: NSDecimalNumber) -> String {
+        let numberFormat = NumberFormatter()
+        numberFormat.numberStyle = .currency
+        return "R$ \(String(describing: numberFormat.string(from: number)!))"
     }
     
     @IBAction func bttTop(_ sender: Any) {
