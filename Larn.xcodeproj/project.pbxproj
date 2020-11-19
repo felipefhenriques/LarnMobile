@@ -45,6 +45,7 @@
 		89BFF12325543C9500AE627F /* Aluno.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89BFF12225543C9500AE627F /* Aluno.storyboard */; };
 		89BFF1282554467C00AE627F /* AlunoHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFF1272554467C00AE627F /* AlunoHomeViewController.swift */; };
 		89FDDCC52566A434000A3F15 /* Compra.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89FDDCC42566A434000A3F15 /* Compra.storyboard */; };
+		89FDDCD02566B348000A3F15 /* CompraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FDDCCF2566B348000A3F15 /* CompraViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		89BFF12225543C9500AE627F /* Aluno.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Aluno.storyboard; sourceTree = "<group>"; };
 		89BFF1272554467C00AE627F /* AlunoHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlunoHomeViewController.swift; sourceTree = "<group>"; };
 		89FDDCC42566A434000A3F15 /* Compra.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Compra.storyboard; sourceTree = "<group>"; };
+		89FDDCCF2566B348000A3F15 /* CompraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompraViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				89FDDCC42566A434000A3F15 /* Compra.storyboard */,
+				89FDDCCF2566B348000A3F15 /* CompraViewController.swift */,
 			);
 			path = Compra;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				896BEB13255B6C2800D265C5 /* Aula+CoreDataClass.swift in Sources */,
 				02EDE3412552C4CC0010C721 /* Login.swift in Sources */,
 				89357F1E255890110058BE03 /* MediumTableCell.swift in Sources */,
+				89FDDCD02566B348000A3F15 /* CompraViewController.swift in Sources */,
 				89357F1925588AD90058BE03 /* SelfConfiguringCell.swift in Sources */,
 				89357F282558B5200058BE03 /* SmallTableCell.swift in Sources */,
 				02E93C742541D99500E47726 /* Larn.xcdatamodeld in Sources */,
