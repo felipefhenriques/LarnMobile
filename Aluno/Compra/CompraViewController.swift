@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class CompraViewController: ViewController {
     
@@ -76,7 +77,39 @@ class CompraViewController: ViewController {
     }
     
     private func purchase(){
-        print("Compra realizada")
+        let user = Sessao.shared.loadUsuario()
+            
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let objetoGerenciado = appDelegate.persistentContainer.viewContext
+        
+        let entidadeEntrada = NSEntityDescription.entity(forEntityName: "Venda", in: objetoGerenciado)
+        let objetoEntrada = NSManagedObject(entity: entidadeEntrada!, insertInto: objetoGerenciado)
+        
+        objetoEntrada.setValue(Date(), forKey: "data")
+        objetoEntrada.setValue(aula, forKey: "aula")
+        objetoEntrada.setValue(user, forKey: "aluno")
+        
+        do {
+            try objetoGerenciado.save()
+        } catch let error as NSError {
+            print("Não foi possível salvar a venda \(error.description)")
+        }
+        
+        //Logica de carregar aulas de um aluno
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+//            return
+//        }
+//        var vendas: [NSManagedObject]
+//        let managedContext = appDelegate.persistentContainer.viewContext
+//        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Venda")
+//
+//        do {
+//            vendas = try managedContext.fetch(fetchRequest).reversed()
+//            let user: NSManagedObject = Sessao.shared.loadUsuario()
+//            vendas = vendas.filter { $0.value(forKey: "aluno") as! NSManagedObject == user}
+//        } catch let error as NSError {
+//            print("Não foi possível carregar os dados. \(error), \(error.userInfo)")
+//        }
     }
     
 }
