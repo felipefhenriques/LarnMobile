@@ -44,6 +44,8 @@
 		89BFF0F625542E2800AE627F /* ReloadDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFF0F525542E2800AE627F /* ReloadDelegate.swift */; };
 		89BFF12325543C9500AE627F /* Aluno.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89BFF12225543C9500AE627F /* Aluno.storyboard */; };
 		89BFF1282554467C00AE627F /* AlunoHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFF1272554467C00AE627F /* AlunoHomeViewController.swift */; };
+		89FDDCC52566A434000A3F15 /* Compra.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89FDDCC42566A434000A3F15 /* Compra.storyboard */; };
+		89FDDCD02566B348000A3F15 /* CompraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FDDCCF2566B348000A3F15 /* CompraViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +109,8 @@
 		89BFF0F525542E2800AE627F /* ReloadDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReloadDelegate.swift; sourceTree = "<group>"; };
 		89BFF12225543C9500AE627F /* Aluno.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Aluno.storyboard; sourceTree = "<group>"; };
 		89BFF1272554467C00AE627F /* AlunoHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlunoHomeViewController.swift; sourceTree = "<group>"; };
+		89FDDCC42566A434000A3F15 /* Compra.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Compra.storyboard; sourceTree = "<group>"; };
+		89FDDCCF2566B348000A3F15 /* CompraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompraViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +290,7 @@
 		89BFF12125543AFE00AE627F /* Aluno */ = {
 			isa = PBXGroup;
 			children = (
+				89FDDCC32566A422000A3F15 /* Compra */,
 				89357F12255889FE0058BE03 /* CollectionView */,
 				89BFF12225543C9500AE627F /* Aluno.storyboard */,
 				89BFF1272554467C00AE627F /* AlunoHomeViewController.swift */,
@@ -293,6 +298,15 @@
 				896BEADD255AD8FC00D265C5 /* AlunoMeusCursosViewController.swift */,
 			);
 			path = Aluno;
+			sourceTree = "<group>";
+		};
+		89FDDCC32566A422000A3F15 /* Compra */ = {
+			isa = PBXGroup;
+			children = (
+				89FDDCC42566A434000A3F15 /* Compra.storyboard */,
+				89FDDCCF2566B348000A3F15 /* CompraViewController.swift */,
+			);
+			path = Compra;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,6 +416,7 @@
 				02E93C762541D99700E47726 /* Assets.xcassets in Resources */,
 				89BFF0DB25542D9E00AE627F /* Professor.storyboard in Resources */,
 				02E93C712541D99500E47726 /* Main.storyboard in Resources */,
+				89FDDCC52566A434000A3F15 /* Compra.storyboard in Resources */,
 				89BFF12325543C9500AE627F /* Aluno.storyboard in Resources */,
 				02B5AC69255B6018006F1386 /* Busca.storyboard in Resources */,
 				02EDE33B2552C4AD0010C721 /* Login.storyboard in Resources */,
@@ -446,6 +461,7 @@
 				896BEB13255B6C2800D265C5 /* Aula+CoreDataClass.swift in Sources */,
 				02EDE3412552C4CC0010C721 /* Login.swift in Sources */,
 				89357F1E255890110058BE03 /* MediumTableCell.swift in Sources */,
+				89FDDCD02566B348000A3F15 /* CompraViewController.swift in Sources */,
 				89357F1925588AD90058BE03 /* SelfConfiguringCell.swift in Sources */,
 				89357F282558B5200058BE03 /* SmallTableCell.swift in Sources */,
 				02E93C742541D99500E47726 /* Larn.xcdatamodeld in Sources */,
