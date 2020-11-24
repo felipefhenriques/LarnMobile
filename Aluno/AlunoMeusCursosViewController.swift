@@ -77,6 +77,7 @@ extension AlunoMeusCursosViewController: UITableViewDataSource, UITableViewDeleg
         let storyboard = UIStoryboard(name: "Professor", bundle: Bundle.main)
         let registerView: RegisterClassViewController = storyboard.instantiateViewController(withIdentifier: "RegisterClass") as! RegisterClassViewController
         registerView.aula = aulas[indexPath.row]
+        registerView.isReadOnly = true
         self.navigationController?.pushViewController(registerView, animated: true)
     }
 }
