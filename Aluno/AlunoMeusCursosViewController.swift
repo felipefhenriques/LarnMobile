@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AlunoMeusCursosViewController: UIViewController {
     let cellIdentifier = "AlunoCursosCell"
@@ -22,14 +23,16 @@ class AlunoMeusCursosViewController: UIViewController {
     
     //Implementar - Buscar aulas do Aluno
     func fetchData(){
+        var vendas: [NSManagedObject]
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Venda")
+        
         do {
-            aulas = try contex.fetch(Aula.fetchRequest())
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        } catch {
-
+            vendas = try contex.fetch(fetchRequest).reversed()
+            let user: NSManagedObject = Sessao.shared.loadUsuario()
+            vendas = vendas.filter { $0.value(forKey: "aluno") as! NSManagedObject == user}
+            aulas = vendas.map {$0.value(forKey: "aula") as! Aula}
+        } catch let error as NSError {
+            print("Não foi possível carregar os dados. \(error), \(error.userInfo)")
         }
     }
 }
@@ -47,7 +50,7 @@ extension AlunoMeusCursosViewController: UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! AlunoTableViewCell
-             
+        
         let aula = aulas[indexPath.row]
         cell.aula = aula
         
