@@ -21,6 +21,14 @@ class AlunoMeusCursosViewController: UIViewController {
         tableView.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.fetchData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
     //Implementar - Buscar aulas do Aluno
     func fetchData(){
         var vendas: [NSManagedObject]
