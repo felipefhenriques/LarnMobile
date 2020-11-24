@@ -34,6 +34,8 @@ class AlunoHomeViewController: UIViewController {
     
     var sections: [Section] = []
     
+    private var selection: Aula?
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         sections = generateSections()
@@ -54,6 +56,7 @@ class AlunoHomeViewController: UIViewController {
         
         createDataSource()
         realoadData()
+        collectionView.delegate = self
     }
     
     func configure<T: SelfConfiguringCell> (_ cellType: T.Type, with aula: Aula, for indexPath: IndexPath) -> T {
@@ -236,4 +239,20 @@ class AlunoHomeViewController: UIViewController {
     }
 }
 
+extension AlunoHomeViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let section: Section = sections[indexPath.section]
+        selection = section.items[indexPath.item]
+        performSegue(withIdentifier: "ComprarAula", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ComprarAula" {
+            let destination = segue.destination as? CompraViewController
+            
+            destination?.aula = selection
+        }
+    }
+}
 
