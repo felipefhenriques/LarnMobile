@@ -118,8 +118,13 @@ class ViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    private func generateDesign(){
         
-        
+    }
+    
+    private func generateMarketing(){
     }
     
 }
