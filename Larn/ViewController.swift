@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchData()
+        //generateDesign()
     }
     
     func fetchData(){
@@ -121,6 +122,24 @@ class ViewController: UIViewController {
     }
     
     private func generateDesign(){
+        let newAula = Aula(context: self.contex)
+        newAula.id = UUID()
+        
+        newAula.tema = "Design"
+        newAula.materia = categorys[2]
+        print(categorys[2])
+        newAula.requisitos = "nenhum"
+        newAula.conteudo = "conteudo"
+        newAula.descricao = "desc"
+        newAula.data = Date()
+        newAula.valor = NSDecimalNumber(value: Int.random(in: 10..<250))
+        newAula.image = UIImage(named: "estrela")?.pngData()
+        do {
+            try contex.save()
+        } catch {
+            fatalError("Geracao de aula falhou")
+        }
+        
         
     }
     

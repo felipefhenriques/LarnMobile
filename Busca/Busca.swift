@@ -88,8 +88,8 @@ class buscaMaterias: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
 
         let managedContext = appDelegate.persistentContainer.viewContext
-        let predicate = NSPredicate(format: "materia", materia)
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Aula")
+        let predicate = NSPredicate(format: "ANY materia.materia ==%@", materia)
 
         fetchRequest.predicate = predicate
         
