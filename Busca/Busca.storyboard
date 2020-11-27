@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vem-zE-8ey">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vem-zE-8ey">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,16 +11,24 @@
         <!--Busca Table-->
         <scene sceneID="k4v-1v-ROU">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="01H-yC-ETP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController modalPresentationStyle="fullScreen" id="vem-zE-8ey" customClass="buscaTable" customModule="Larn" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="t46-ya-CQ3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="sectionIndexBackgroundColor" red="0.9686403871" green="0.9686041474" blue="0.96862870450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="0xi-Ev-mVM">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
-                                <navigationItem title="Buscar matérias" id="hXo-kh-QyA"/>
+                                <navigationItem title="Buscar matérias" id="hXo-kh-QyA">
+                                    <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pSY-QJ-ysL">
+                                        <connections>
+                                            <action selector="bttCancela:" destination="vem-zE-8ey" id="EW4-zH-G6s"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
                             </items>
                         </navigationBar>
                         <prototypes>
@@ -50,7 +58,6 @@
                         <segue destination="A1n-rg-3xP" kind="show" identifier="segueMateria" id="m8e-WS-2FP"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="01H-yC-ETP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-392.75362318840581" y="-92.410714285714278"/>
         </scene>
@@ -94,21 +101,20 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NFL-us-0cF">
-                                                    <rect key="frame" x="6" y="11" width="67" height="59"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                </view>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UhH-wJ-3ps">
+                                                    <rect key="frame" x="9" y="11" width="60" height="60"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="OSL-BM-T4d" firstAttribute="leading" secondItem="h4T-YQ-dx2" secondAttribute="leading" constant="86" id="43t-Oy-Alj"/>
-                                                <constraint firstItem="NFL-us-0cF" firstAttribute="top" secondItem="h4T-YQ-dx2" secondAttribute="topMargin" id="DV0-t8-KY7"/>
                                                 <constraint firstItem="qV4-d2-FZI" firstAttribute="top" secondItem="hqy-RQ-5id" secondAttribute="bottom" constant="8" id="E24-VZ-Gql"/>
-                                                <constraint firstItem="NFL-us-0cF" firstAttribute="leading" secondItem="h4T-YQ-dx2" secondAttribute="leadingMargin" constant="-14" id="Ejh-SU-06g"/>
-                                                <constraint firstItem="OSL-BM-T4d" firstAttribute="leading" secondItem="NFL-us-0cF" secondAttribute="trailing" constant="13" id="UAj-dQ-Uhq"/>
-                                                <constraint firstItem="NFL-us-0cF" firstAttribute="centerY" secondItem="hqy-RQ-5id" secondAttribute="centerY" id="Zah-tQ-fE8"/>
-                                                <constraint firstItem="NFL-us-0cF" firstAttribute="top" secondItem="OSL-BM-T4d" secondAttribute="top" id="gY2-fC-rFM"/>
-                                                <constraint firstItem="hqy-RQ-5id" firstAttribute="leading" secondItem="NFL-us-0cF" secondAttribute="trailing" constant="14" id="kr7-uC-EDC"/>
-                                                <constraint firstItem="NFL-us-0cF" firstAttribute="bottom" secondItem="h4T-YQ-dx2" secondAttribute="bottomMargin" id="r16-ty-dsI"/>
+                                                <constraint firstItem="UhH-wJ-3ps" firstAttribute="centerY" secondItem="h4T-YQ-dx2" secondAttribute="centerY" constant="0.5" id="HSI-cO-1xt"/>
+                                                <constraint firstItem="OSL-BM-T4d" firstAttribute="leading" secondItem="UhH-wJ-3ps" secondAttribute="trailing" constant="17" id="Pe4-sO-AvQ"/>
+                                                <constraint firstItem="UhH-wJ-3ps" firstAttribute="leading" secondItem="h4T-YQ-dx2" secondAttribute="leadingMargin" constant="-11" id="SZZ-WW-cmd"/>
+                                                <constraint firstItem="OSL-BM-T4d" firstAttribute="top" secondItem="h4T-YQ-dx2" secondAttribute="topMargin" id="Vos-fQ-WOQ"/>
+                                                <constraint firstItem="hqy-RQ-5id" firstAttribute="leading" secondItem="UhH-wJ-3ps" secondAttribute="trailing" constant="18" id="co7-aS-jvg"/>
+                                                <constraint firstItem="UhH-wJ-3ps" firstAttribute="top" secondItem="h4T-YQ-dx2" secondAttribute="topMargin" id="cuN-lg-Jsz"/>
+                                                <constraint firstItem="UhH-wJ-3ps" firstAttribute="centerY" secondItem="hqy-RQ-5id" secondAttribute="centerY" constant="0.5" id="tiF-0n-IAO"/>
                                                 <constraint firstItem="OSL-BM-T4d" firstAttribute="leading" secondItem="qV4-d2-FZI" secondAttribute="leading" id="wgB-nn-Xl0"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -116,7 +122,7 @@
                                             <outlet property="lblNomeProf" destination="hqy-RQ-5id" id="Lnh-2q-Ikf"/>
                                             <outlet property="lblTitulo" destination="OSL-BM-T4d" id="tFQ-9W-Vhr"/>
                                             <outlet property="lblValor" destination="qV4-d2-FZI" id="jAM-UD-5XO"/>
-                                            <outlet property="viewImg" destination="NFL-us-0cF" id="Rbl-Hv-wcl"/>
+                                            <outlet property="viewImg" destination="UhH-wJ-3ps" id="wGW-q6-DNC"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -169,6 +175,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="moc-KX-j2W"/>
                     <connections>
+                        <outlet property="navigationBar" destination="7r6-HX-og5" id="INI-ht-eUq"/>
                         <outlet property="tblAulas" destination="qBj-vX-Kl0" id="QxS-SG-0se"/>
                     </connections>
                 </viewController>

@@ -63,10 +63,16 @@ class buscaTable: UITableViewController {
             vc.materia = sender as! String
         }
     }
+    
+    @IBAction func bttCancela(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 class buscaMaterias: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var navigationBar: UINavigationBar!
     var materia = String()
     var aulas:[NSManagedObject] = []
     var dataSource: UITableViewDiffableDataSource<Section, Aula>?
@@ -78,6 +84,7 @@ class buscaMaterias: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tblAulas.dataSource = self
         tblAulas.rowHeight = 85
         
+        navigationBar.topItem?.title = materia
         print(materia)
     }
     
@@ -110,12 +117,14 @@ class buscaMaterias: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! customCell
         let aula = aulas[indexPath.row]
         let valorAula: Decimal = aula.value(forKey: "valor") as! Decimal
-    
+        let icon = defineIcon(materia: materia)
         
         cell.lblTitulo.text = aula.value(forKey: "tema") as? String
-        cell.lblNomeProf.text = "Nome professor"
+        cell.lblNomeProf.text = aula.value(forKeyPath: "prof.nome") as? String
         cell.lblValor.text = "R$" + NSDecimalNumber(decimal: valorAula).stringValue
-        cell.viewImg.backgroundColor = .red
+        if(icon != ""){
+            cell.viewImg.image = UIImage(named: icon)
+        }
 
         return cell
     }
@@ -124,6 +133,24 @@ class buscaMaterias: UIViewController, UITableViewDelegate, UITableViewDataSourc
         self.dismiss(animated: true, completion: nil)
     }
     
+    func defineIcon(materia: String) -> String{
+        switch(materia){
+        case "Artes":
+            return "artes"
+        case "Marketing":
+            return "marketing"
+        case "Finanças":
+            return "financas"
+        case "Design":
+            return "design"
+        case "Negócios":
+            return "negocios"
+        case "Desenvolvimento":
+            return "desenvolvimento"
+        default:
+            return ""
+        }
+    }
     
 }
 
@@ -131,7 +158,7 @@ class customCell: UITableViewCell {
     @IBOutlet weak var lblTitulo: UILabel!
     @IBOutlet weak var lblNomeProf: UILabel!
     @IBOutlet weak var lblValor: UILabel!
-    @IBOutlet weak var viewImg: UIView!
+    @IBOutlet weak var viewImg: UIImageView!
     
 }
   
