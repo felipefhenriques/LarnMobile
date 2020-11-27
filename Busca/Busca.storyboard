@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vem-zE-8ey">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lT6-pv-0ry">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -11,7 +11,6 @@
         <!--Busca Table-->
         <scene sceneID="k4v-1v-ROU">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="01H-yC-ETP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController modalPresentationStyle="fullScreen" id="vem-zE-8ey" customClass="buscaTable" customModule="Larn" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="t46-ya-CQ3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -54,12 +53,14 @@
                             <outlet property="delegate" destination="vem-zE-8ey" id="7Dg-zw-gwJ"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="yed-N9-hg9"/>
                     <connections>
                         <segue destination="A1n-rg-3xP" kind="show" identifier="segueMateria" id="m8e-WS-2FP"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="01H-yC-ETP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-392.75362318840581" y="-92.410714285714278"/>
+            <point key="canvasLocation" x="517.39130434782612" y="-92.410714285714278"/>
         </scene>
         <!--Busca Materias-->
         <scene sceneID="Tra-MP-0Hb">
@@ -70,7 +71,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qBj-vX-Kl0">
-                                <rect key="frame" x="39" y="331" width="336" height="531"/>
+                                <rect key="frame" x="39" y="282" width="336" height="531"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="531" id="GPd-sv-LUB"/>
@@ -129,10 +130,10 @@
                                 <sections/>
                             </tableView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bm3-iW-ZVU">
-                                <rect key="frame" x="20" y="102" width="374" height="203"/>
+                                <rect key="frame" x="20" y="146" width="374" height="110"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Tx-hP-pZN">
-                                        <rect key="frame" x="46" y="10" width="294" height="183"/>
+                                        <rect key="frame" x="46" y="10" width="294" height="90"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                     </view>
                                 </subviews>
@@ -177,14 +178,46 @@
                     <connections>
                         <outlet property="navigationBar" destination="7r6-HX-og5" id="INI-ht-eUq"/>
                         <outlet property="tblAulas" destination="qBj-vX-Kl0" id="QxS-SG-0se"/>
+                        <segue destination="NTZ-xR-ZOT" kind="show" identifier="ComprarAula" id="bBg-Ks-bM1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URa-u7-23Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="356.52173913043481" y="-92.410714285714278"/>
+            <point key="canvasLocation" x="1266.6666666666667" y="-92.410714285714278"/>
+        </scene>
+        <!--Compra-->
+        <scene sceneID="aUI-yv-IF1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Compra" id="NTZ-xR-ZOT" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="IIi-BE-Pko"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kyc-nb-sYp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2246" y="-75"/>
+        </scene>
+        <!--Pesquisa-->
+        <scene sceneID="bcF-3x-3Mz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lT6-pv-0ry" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Pesquisa" image="magnifyingglass" catalog="system" id="m0a-6M-TXQ"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gSD-T0-meJ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vem-zE-8ey" kind="relationship" relationship="rootViewController" id="dqw-ZY-x1d"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RXU-Zu-aUW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-392.75362318840581" y="-92.410714285714278"/>
         </scene>
     </scenes>
     <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

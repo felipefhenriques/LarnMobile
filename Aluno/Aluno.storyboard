@@ -186,12 +186,24 @@
                     </tabBar>
                     <connections>
                         <segue destination="QQ0-uA-iU6" kind="relationship" relationship="viewControllers" id="wG7-SE-QnZ"/>
+                        <segue destination="7bp-XN-A97" kind="relationship" relationship="viewControllers" id="ii4-UU-mEA"/>
                         <segue destination="1zR-Cc-HII" kind="relationship" relationship="viewControllers" id="va1-ec-1w3"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G7T-HC-lbt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="111.59420289855073" y="81.696428571428569"/>
+        </scene>
+        <!--Busca-->
+        <scene sceneID="9Gk-oS-u5N">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Busca" id="7bp-XN-A97" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="wfN-QH-tRf"/>
+                    <navigationItem key="navigationItem" id="00H-LG-LFd"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dai-mG-idI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-537" y="488"/>
         </scene>
         <!--Meus Cursos-->
         <scene sceneID="WoH-Eb-nIc">
