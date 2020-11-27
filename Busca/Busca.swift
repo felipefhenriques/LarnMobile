@@ -78,6 +78,8 @@ class buscaMaterias: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var dataSource: UITableViewDiffableDataSource<Section, Aula>?
     @IBOutlet weak var tblAulas: UITableView!
     
+    private var aulaSelecionada: Aula?
+    
     override func viewDidLoad() {
         lerEntradas()
         tblAulas.delegate = self
@@ -129,6 +131,11 @@ class buscaMaterias: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        aulaSelecionada = aulas[indexPath.row] as? Aula
+        performSegue(withIdentifier: "ComprarAula", sender: nil)
+    }
+    
     @IBAction func btnDismiss(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -149,6 +156,14 @@ class buscaMaterias: UIViewController, UITableViewDelegate, UITableViewDataSourc
             return "desenvolvimento"
         default:
             return ""
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ComprarAula" {
+            let destination = segue.destination as? CompraViewController
+            
+            destination?.aula = aulaSelecionada
         }
     }
     
