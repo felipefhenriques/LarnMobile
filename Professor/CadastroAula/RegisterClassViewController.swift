@@ -26,6 +26,8 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
     
     var aula: Aula?
     
+    var isReadOnly: Bool = false
+    
     override func viewDidLoad() {
         materiaPicker.delegate = self
         materiaPicker.dataSource = self
@@ -147,7 +149,9 @@ class RegisterClassViewController: UIViewController, UIImagePickerControllerDele
             
         }
         
-        self.navigationItem.rightBarButtonItem  = self.editButtonItem
+        if !isReadOnly {
+            self.navigationItem.rightBarButtonItem  = self.editButtonItem
+        }
         publishBtt.isHidden = true
         setEditing(false)
     }

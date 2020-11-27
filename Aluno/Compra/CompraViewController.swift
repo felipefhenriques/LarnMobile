@@ -77,41 +77,34 @@ class CompraViewController: ViewController {
     }
     
     private func purchase(){
-        let user = Sessao.shared.loadUsuario()
-            
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let objetoGerenciado = appDelegate.persistentContainer.viewContext
-        
-        let entidadeEntrada = NSEntityDescription.entity(forEntityName: "Venda", in: objetoGerenciado)
-        let objetoEntrada = NSManagedObject(entity: entidadeEntrada!, insertInto: objetoGerenciado)
-        
-        objetoEntrada.setValue(Date(), forKey: "data")
-        objetoEntrada.setValue(aula, forKey: "aula")
-        objetoEntrada.setValue(user, forKey: "aluno")
-        
-        do {
-            try objetoGerenciado.save()
-        } catch let error as NSError {
-            print("Não foi possível salvar a venda \(error.description)")
+        alert() {
+            let user = Sessao.shared.loadUsuario()
+
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let objetoGerenciado = appDelegate.persistentContainer.viewContext
+
+            let entidadeEntrada = NSEntityDescription.entity(forEntityName: "Venda", in: objetoGerenciado)
+            let objetoEntrada = NSManagedObject(entity: entidadeEntrada!, insertInto: objetoGerenciado)
+
+            objetoEntrada.setValue(Date(), forKey: "data")
+            objetoEntrada.setValue(self.aula, forKey: "aula")
+            objetoEntrada.setValue(user, forKey: "aluno")
+
+            do {
+                try objetoGerenciado.save()
+            } catch let error as NSError {
+                print("Não foi possível salvar a venda \(error.description)")
+            }
         }
-        
-        //Logica de carregar aulas de um aluno
-//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-//            return
-//        }
-//        var vendas: [NSManagedObject]
-//        let managedContext = appDelegate.persistentContainer.viewContext
-//        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Venda")
-//
-//        do {
-//            vendas = try managedContext.fetch(fetchRequest).reversed()
-//            let user: NSManagedObject = Sessao.shared.loadUsuario()
-//            vendas = vendas.filter { $0.value(forKey: "aluno") as! NSManagedObject == user}
-//        } catch let error as NSError {
-//            print("Não foi possível carregar os dados. \(error), \(error.userInfo)")
-//        }
     }
     
+    func alert(completion: (@escaping ()-> Void)) {
+        let alert = UIAlertController(title: "Compra", message: "Tem certeza que deseja adquirir o curso \(aula.tema!) no valor de \(decimalToString(aula.valor!))?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {_ in completion()}))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension UITextView {
