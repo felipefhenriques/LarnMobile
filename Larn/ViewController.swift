@@ -25,7 +25,7 @@ class ViewController: UIViewController {
             categorys = try contex.fetch(Materia.fetchRequest())
             aulas = try contex.fetch(Aula.fetchRequest())
             generateCategorys()
-            //generateAulasTeste()
+            generateAulasTeste()
         } catch {
             
         }
