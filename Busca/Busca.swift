@@ -12,7 +12,7 @@ import CoreData
 class buscaTable: UITableViewController {
     
     var materias:[NSManagedObject] = []
-    
+    var auxMateria = String()
     
     
     override func viewDidLoad() {
@@ -37,7 +37,8 @@ class buscaTable: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "segueMateria", sender: self)
+        let materiaSelecionada = self.materias[indexPath.row].value(forKey: "materia") as! String
+        performSegue(withIdentifier: "segueMateria", sender: materiaSelecionada)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,13 +54,20 @@ class buscaTable: UITableViewController {
         
         cell.textLabel?.text = materia.value(forKey: "materia") as? String
         
-        
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueMateria"{
+            let vc = segue.destination as! buscaMaterias
+            vc.materia = sender as! String
+        }
     }
 }
 
 class buscaMaterias: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var materia = String()
     var aulas:[NSManagedObject] = []
     var dataSource: UITableViewDiffableDataSource<Section, Aula>?
     @IBOutlet weak var tblAulas: UITableView!
@@ -70,7 +78,7 @@ class buscaMaterias: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tblAulas.dataSource = self
         tblAulas.rowHeight = 85
         
-        
+        print(materia)
     }
     
     
@@ -81,7 +89,10 @@ class buscaMaterias: UIViewController, UITableViewDelegate, UITableViewDataSourc
 
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Aula")
+        let predicate = NSPredicate(format: "ANY materia.materia ==%@", materia)
 
+        fetchRequest.predicate = predicate
+        
         do {
             aulas = try managedContext.fetch(fetchRequest).reversed()
             self.tblAulas.reloadData()
@@ -99,17 +110,20 @@ class buscaMaterias: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! customCell
         let aula = aulas[indexPath.row]
         let valorAula: Decimal = aula.value(forKey: "valor") as! Decimal
+    
         
         cell.lblTitulo.text = aula.value(forKey: "tema") as? String
         cell.lblNomeProf.text = "Nome professor"
         cell.lblValor.text = "R$" + NSDecimalNumber(decimal: valorAula).stringValue
         cell.viewImg.backgroundColor = .red
 
-        
         return cell
     }
     
-   
+    @IBAction func btnDismiss(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
 }
 
