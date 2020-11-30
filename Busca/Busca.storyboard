@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Busca Table-->
+        <!--Buscar aulas-->
         <scene sceneID="k4v-1v-ROU">
             <objects>
                 <tableViewController modalPresentationStyle="fullScreen" id="vem-zE-8ey" customClass="buscaTable" customModule="Larn" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,22 +17,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="sectionIndexBackgroundColor" red="0.9686403871" green="0.9686041474" blue="0.96862870450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="0xi-Ev-mVM">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <items>
-                                <navigationItem title="Buscar matérias" id="hXo-kh-QyA">
-                                    <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pSY-QJ-ysL">
-                                        <connections>
-                                            <action selector="bttCancela:" destination="vem-zE-8ey" id="EW4-zH-G6s"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </navigationItem>
-                            </items>
-                        </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="88" id="OwC-KK-prT">
-                                <rect key="frame" x="0.0" y="72" width="414" height="88"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OwC-KK-prT" id="9WN-ZJ-2uy">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
@@ -40,7 +27,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="N1J-wq-iZN">
-                                <rect key="frame" x="0.0" y="160" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="116" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N1J-wq-iZN" id="Msc-TC-POK">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -53,7 +40,7 @@
                             <outlet property="delegate" destination="vem-zE-8ey" id="7Dg-zw-gwJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="yed-N9-hg9"/>
+                    <navigationItem key="navigationItem" title="Buscar aulas" id="v4z-qe-bQF"/>
                     <connections>
                         <segue destination="A1n-rg-3xP" kind="show" identifier="segueMateria" id="m8e-WS-2FP"/>
                     </connections>
@@ -62,7 +49,7 @@
             </objects>
             <point key="canvasLocation" x="517.39130434782612" y="-92.410714285714278"/>
         </scene>
-        <!--Busca Materias-->
+        <!--Title-->
         <scene sceneID="Tra-MP-0Hb">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="A1n-rg-3xP" customClass="buscaMaterias" customModule="Larn" customModuleProvider="target" sceneMemberID="viewController">
@@ -71,10 +58,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qBj-vX-Kl0">
-                                <rect key="frame" x="39" y="282" width="336" height="531"/>
+                                <rect key="frame" x="39" y="101" width="336" height="712"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="531" id="GPd-sv-LUB"/>
+                                    <constraint firstAttribute="height" constant="712" id="GPd-sv-LUB"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="81" id="1g2-3h-sN6" customClass="customCell" customModule="Larn" customModuleProvider="target">
@@ -129,54 +116,18 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bm3-iW-ZVU">
-                                <rect key="frame" x="20" y="146" width="374" height="110"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Tx-hP-pZN">
-                                        <rect key="frame" x="46" y="10" width="294" height="90"/>
-                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="7Tx-hP-pZN" secondAttribute="trailing" constant="34" id="AXY-Rx-Fbe"/>
-                                    <constraint firstItem="7Tx-hP-pZN" firstAttribute="top" secondItem="Zq0-Mi-cUZ" secondAttribute="top" constant="10" id="DTE-Sn-sFO"/>
-                                    <constraint firstItem="7Tx-hP-pZN" firstAttribute="centerY" secondItem="bm3-iW-ZVU" secondAttribute="centerY" id="YQV-5v-UuO"/>
-                                    <constraint firstItem="7Tx-hP-pZN" firstAttribute="leading" secondItem="Zq0-Mi-cUZ" secondAttribute="leading" constant="46" id="aAV-6j-rgQ"/>
-                                    <constraint firstAttribute="bottom" secondItem="7Tx-hP-pZN" secondAttribute="bottom" constant="11" id="hbt-eG-ZRs"/>
-                                    <constraint firstItem="Zq0-Mi-cUZ" firstAttribute="trailing" secondItem="7Tx-hP-pZN" secondAttribute="trailing" constant="34" id="x6n-5M-LSe"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="G2G-8R-h0p"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="Zq0-Mi-cUZ"/>
-                            </scrollView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7r6-HX-og5">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Title" id="ZTT-WK-0eT">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="zE6-ci-prN">
-                                            <connections>
-                                                <action selector="btnDismiss:" destination="A1n-rg-3xP" id="aN4-OP-8CL"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FtS-9M-jUU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="bm3-iW-ZVU" firstAttribute="trailing" secondItem="DiQ-q0-pFb" secondAttribute="trailingMargin" id="0HE-3a-XOp"/>
-                            <constraint firstItem="bm3-iW-ZVU" firstAttribute="centerX" secondItem="qBj-vX-Kl0" secondAttribute="centerX" id="DO8-Li-qgQ"/>
                             <constraint firstItem="qBj-vX-Kl0" firstAttribute="bottom" secondItem="FtS-9M-jUU" secondAttribute="bottom" id="DXV-g6-OIE"/>
-                            <constraint firstItem="qBj-vX-Kl0" firstAttribute="top" secondItem="bm3-iW-ZVU" secondAttribute="bottom" constant="26" id="c3s-Er-GQ3"/>
                             <constraint firstItem="qBj-vX-Kl0" firstAttribute="leading" secondItem="FtS-9M-jUU" secondAttribute="leading" constant="39" id="cag-Wq-m5g"/>
-                            <constraint firstItem="bm3-iW-ZVU" firstAttribute="leading" secondItem="DiQ-q0-pFb" secondAttribute="leadingMargin" id="iCl-I0-jZm"/>
-                            <constraint firstItem="bm3-iW-ZVU" firstAttribute="top" secondItem="FtS-9M-jUU" secondAttribute="top" constant="58" id="xAz-AA-dUf"/>
+                            <constraint firstItem="qBj-vX-Kl0" firstAttribute="centerX" secondItem="DiQ-q0-pFb" secondAttribute="centerX" id="xRW-Lx-YU8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="moc-KX-j2W"/>
+                    <navigationItem key="navigationItem" title="Title" id="hzk-ke-jIt"/>
                     <connections>
-                        <outlet property="navigationBar" destination="7r6-HX-og5" id="INI-ht-eUq"/>
+                        <outlet property="navigationTitle" destination="hzk-ke-jIt" id="7ld-gG-AfW"/>
                         <outlet property="tblAulas" destination="qBj-vX-Kl0" id="QxS-SG-0se"/>
                         <segue destination="NTZ-xR-ZOT" kind="show" identifier="ComprarAula" id="bBg-Ks-bM1"/>
                     </connections>
@@ -223,9 +174,6 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -72,7 +72,7 @@ class buscaTable: UITableViewController {
 
 class buscaMaterias: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var navigationTitle: UINavigationItem!
     var materia = String()
     var aulas:[NSManagedObject] = []
     var dataSource: UITableViewDiffableDataSource<Section, Aula>?
@@ -86,7 +86,7 @@ class buscaMaterias: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tblAulas.dataSource = self
         tblAulas.rowHeight = 85
         
-        navigationBar.topItem?.title = materia
+        navigationTitle.title = materia
         print(materia)
     }
     
@@ -150,7 +150,7 @@ class buscaMaterias: UIViewController, UITableViewDelegate, UITableViewDataSourc
             return "financas"
         case "Design":
             return "design"
-        case "Negócios":
+        case "Negocios":
             return "negocios"
         case "Desenvolvimento":
             return "desenvolvimento"
