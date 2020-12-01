@@ -92,7 +92,7 @@ class ViewController: UIViewController {
     }
     
     private func generateAulasTeste(){
-        if aulas.count < 21 {
+        if aulas.count < 50 {
             let tema = "Tema da Aula"
             let req = "Requisito da Aula"
             let learn = "Conteudo"
@@ -111,7 +111,7 @@ class ViewController: UIViewController {
                 newAula.descricao = desc + "\(i)"
                 newAula.data = Date()
                 newAula.valor = NSDecimalNumber(value: Int.random(in: 10..<250))
-                newAula.image = UIImage(named: "estrela")?.pngData()
+                genIcon(aula: newAula)
                 do {
                     try contex.save()
                 } catch {
@@ -146,5 +146,28 @@ class ViewController: UIViewController {
     private func generateMarketing(){
     }
     
+    private func genIcon(aula: Aula){
+        guard let materia: Materia = aula.materia else {
+            fatalError("Sem materia definida")
+        }
+        
+        switch materia.materia {
+        case "Desenvolvimento":
+            aula.image = UIImage(named: "desenvolvimento")?.pngData()
+        case "Negocios":
+            aula.image = UIImage(named: "negocios")?.pngData()
+        case "Design":
+            aula.image = UIImage(named: "design")?.pngData()
+        case "Finanças":
+            aula.image = UIImage(named: "finanças")?.pngData()
+        case "Marketing":
+            aula.image = UIImage(named: "marketing")?.pngData()
+        case "Artes":
+            aula.image = UIImage(named: "artes")?.pngData()
+        default:
+            return
+        }
+        
+    }
 }
 
