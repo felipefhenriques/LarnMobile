@@ -28,7 +28,7 @@ class MediumTableCell: UICollectionViewCell, SelfConfiguringCell {
         imageView.clipsToBounds = true
         imageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
-        buyButton.setImage(UIImage(systemName: "icloud.and.arrow.down"), for: .normal)
+        buyButton.setImage(UIImage(systemName: "cart.badge.plus"), for: .normal)
         buyButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
         let innerStackView = UIStackView(arrangedSubviews: [name, subtitle])

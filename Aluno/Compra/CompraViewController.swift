@@ -66,7 +66,8 @@ class CompraViewController: ViewController {
     private func decimalToString(_ number: NSDecimalNumber) -> String {
         let numberFormat = NumberFormatter()
         numberFormat.numberStyle = .currency
-        return "R$ \(String(describing: numberFormat.string(from: number)!))"
+        numberFormat.locale = Locale(identifier: "pt_BR")
+        return "\(String(describing: numberFormat.string(from: number)!))"
     }
     
     @IBAction func bttTop(_ sender: Any) {
