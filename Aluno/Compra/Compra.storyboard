@@ -58,7 +58,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="k36-6i-byW"/>
                                                 </constraints>
-                                                <state key="normal" title="Button">
+                                                <state key="normal" title="Comprar">
                                                     <color key="titleColor" systemColor="labelColor"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -159,7 +159,9 @@
                                                                     <constraint firstAttribute="height" constant="42" id="lQf-h8-f9u"/>
                                                                     <constraint firstAttribute="width" constant="130" id="rnv-wN-rEK"/>
                                                                 </constraints>
-                                                                <state key="normal" title="Comprar Agora"/>
+                                                                <state key="normal" title="Comprar Agora">
+                                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                                </state>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
